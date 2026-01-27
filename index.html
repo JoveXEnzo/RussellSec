@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Russell Security</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
   <style>
     :root {
       --bg: #000;
       --text: #fff;
       --muted: #bfbfbf;
-      --accent: #fff;
+      --border: #333;
     }
 
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
     }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { opacity: 0.8; }
 
     header {
       position: sticky;
@@ -33,11 +33,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid var(--border);
     }
 
     .logo img {
-      width: 150px;
+      width: 160px;
       max-width: 160px;
     }
 
@@ -83,7 +83,7 @@
 
     section {
       padding: 70px 20px;
-      border-top: 1px solid #111;
+      border-top: 1px solid var(--border);
     }
 
     .section-title {
@@ -92,19 +92,16 @@
       font-size: 28px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .swiper {
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .card {
-      border: 1px solid #333;
+    .swiper-slide {
+      border: 1px solid var(--border);
+      border-radius: 10px;
       padding: 20px;
-      border-radius: 8px;
-      text-align: left;
+      background: #111;
     }
 
     .card h3 {
@@ -121,23 +118,23 @@
       text-align: center;
       padding: 40px 20px;
       color: var(--muted);
-      border-top: 1px solid #111;
+      border-top: 1px solid var(--border);
     }
 
     /* Mobile */
     @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
       nav { display: none; }
       header { justify-content: center; }
       .hero h1 { font-size: 34px; }
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <div class="logo">
-      <img src="assets/logo.png" alt="Russell Security Logo">
+      <img src="https://via.placeholder.com/260x90/000000/FFFFFF?text=RUSSELL+SECURITY" alt="Russell Security Logo">
     </div>
 
     <nav>
@@ -156,37 +153,88 @@
       <a class="btn" href="#contact">Book Security</a>
     </section>
 
+    <!-- SERVICES -->
     <section id="services">
       <div class="section-title">Services</div>
-      <div class="grid">
-        <div class="card">
-          <h3>On-Site Security</h3>
-          <p>24/7 monitoring and protection for commercial properties and events.</p>
+
+      <div class="swiper" id="servicesSwiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide card">
+            <img src="https://via.placeholder.com/400x250/000000/FFFFFF?text=SERVICE+1" style="width:100%; border-radius:8px;" alt="Service 1">
+            <h3>On-Site Security</h3>
+            <p>24/7 monitoring and protection for commercial properties and events.</p>
+          </div>
+
+          <div class="swiper-slide card">
+            <img src="https://via.placeholder.com/400x250/000000/FFFFFF?text=SERVICE+2" style="width:100%; border-radius:8px;" alt="Service 2">
+            <h3>Mobile Patrols</h3>
+            <p>Regular patrols for neighborhoods, businesses, and construction sites.</p>
+          </div>
+
+          <div class="swiper-slide card">
+            <img src="https://via.placeholder.com/400x250/000000/FFFFFF?text=SERVICE+3" style="width:100%; border-radius:8px;" alt="Service 3">
+            <h3>Security Consulting</h3>
+            <p>Risk assessment, planning, and strategy to protect your assets.</p>
+          </div>
+
         </div>
-        <div class="card">
-          <h3>Mobile Patrols</h3>
-          <p>Regular patrols for neighborhoods, businesses, and construction sites.</p>
-        </div>
-        <div class="card">
-          <h3>Security Consulting</h3>
-          <p>Risk assessment, planning, and strategy to protect your assets.</p>
-        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="section-title">About</div>
-      <div style="max-width: 900px; margin: 0 auto; color: var(--muted); line-height: 1.6;">
-        Russell Security has been providing professional security services for years. Our team is trained, licensed, and ready to protect your business or event with integrity and excellence.
+
+      <div class="swiper" id="aboutSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card">
+            <h3>About Russell Security</h3>
+            <p>
+              Russell Security has been providing professional security services for years. Our team is trained, licensed, and ready to protect your business or event with integrity and excellence.
+            </p>
+          </div>
+          <div class="swiper-slide card">
+            <h3>Why Choose Us?</h3>
+            <p>
+              Fast response, reliable coverage, and professional security staff. We take your safety seriously.
+            </p>
+          </div>
+          <div class="swiper-slide card">
+            <h3>Our Promise</h3>
+            <p>
+              Respect, integrity, and protection. We will keep your property safe and secure.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="section-title">Contact</div>
-      <div style="max-width: 600px; margin: 0 auto; text-align: center; color: var(--muted);">
-        <p>Call or text: (555) 555-5555</p>
-        <p>Email: info@russellsecurity.com</p>
+
+      <div class="swiper" id="contactSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card">
+            <h3>Call / Text</h3>
+            <p>(555) 555-5555</p>
+          </div>
+          <div class="swiper-slide card">
+            <h3>Email</h3>
+            <p>info@russellsecurity.com</p>
+          </div>
+          <div class="swiper-slide card">
+            <h3>Location</h3>
+            <p>Service area: Nationwide</p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
+
     </section>
   </main>
 
@@ -194,5 +242,20 @@
     © 2026 Russell Security — All Rights Reserved
   </footer>
 
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    const options = {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true }
+    };
+
+    new Swiper('#servicesSwiper', options);
+    new Swiper('#aboutSwiper', options);
+    new Swiper('#contactSwiper', options);
+  </script>
 </body>
 </html>

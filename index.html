@@ -1,356 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Russell Security & Staffing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Russell Security</title>
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --muted: #bfbfbf;
+      --accent: #fff;
+    }
 
-<style>
-:root{
-  --blue:#0a4ea3;
-  --lightblue:#e9f1fb;
-  --white:#ffffff;
-  --gray:#4a5b6a;
-}
+    * { box-sizing: border-box; }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--lightblue);
-  color:#102233;
-  line-height:1.6;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-/* ===== HEADER ===== */
-header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:var(--white);
-  border-bottom:2px solid var(--blue);
-}
-nav{
-  max-width:1400px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  padding:1rem 1.5rem;
-}
-.logo img{height:52px;}
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
 
-/* ===== HERO CAROUSEL ===== */
-.carousel{
-  position:relative;
-  height:70vh;
-  overflow:hidden;
-}
-.carousel-slide{
-  position:absolute;inset:0;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  transition:opacity 1.4s ease-in-out;
-}
-.carousel-slide.active{opacity:1;}
-.carousel-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(10,78,163,.25),rgba(10,78,163,.85));
-}
-.carousel-text{
-  position:absolute;
-  z-index:2;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
-  color:white;
-  width:90%;
-}
-.carousel-text h1{
-  font-size:clamp(2.5rem,5vw,4rem);
-}
-.carousel-text p{
-  margin-top:1rem;
-  font-size:1.15rem;
-}
-.cta{
-  display:inline-block;
-  margin-top:2rem;
-  padding:.9rem 2.5rem;
-  background:white;
-  color:var(--blue);
-  font-weight:bold;
-  border-radius:4px;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(0,0,0,0.85);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
 
-/* ===== SECTIONS ===== */
-section{padding:4rem 1.5rem;}
-.container{max-width:1400px;margin:auto;}
-h2{color:var(--blue);margin-bottom:1.5rem;}
+    .logo img {
+      width: 150px;
+      max-width: 160px;
+    }
 
-/* ===== GRID CARDS ===== */
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:2rem;
-}
-.card{
-  background:var(--white);
-  border-radius:6px;
-  padding:2rem;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-  transition:.3s;
-}
-.card:hover{transform:translateY(-10px);}
-.card h3{color:var(--blue);margin-bottom:.5rem;}
-.card p{color:var(--gray);}
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
 
-/* ===== CAROUSEL CARDS ===== */
-.service-carousel{
-  position:relative;
-  height:320px;
-  overflow:hidden;
-  background:var(--white);
-  border-radius:8px;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
-}
-.service-slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity 1s ease;
-  padding:1.5rem;
-  display:flex;
-  gap:1.5rem;
-  align-items:center;
-}
-.service-slide.active{opacity:1;}
-.service-slide img{
-  width:280px;
-  height:220px;
-  object-fit:cover;
-  border-radius:8px;
-}
-.service-slide .info h3{margin:0;color:var(--blue);}
-.service-slide .info p{color:var(--gray);margin-top:.6rem;}
-.service-slide .info .btn{
-  margin-top:1rem;
-  display:inline-block;
-  padding:.7rem 1.4rem;
-  background:var(--blue);
-  color:white;
-  border-radius:4px;
-}
+    nav a {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
 
-/* ===== INDUSTRY CAROUSEL ===== */
-.industry-strip{
-  display:flex;
-  overflow:hidden;
-  gap:1rem;
-}
-.industry-strip .industry{
-  min-width:220px;
-  background:white;
-  border-radius:8px;
-  padding:1rem;
-  text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-/* ===== TESTIMONIALS ===== */
-.testimonial{
-  background:white;
-  padding:2rem;
-  border-left:6px solid var(--blue);
-  margin-bottom:1.5rem;
-}
+    .hero h1 {
+      font-size: 42px;
+      margin: 0;
+    }
 
-/* ===== FAQ ===== */
-.faq-item{margin-bottom:1.5rem;}
-.faq-q{font-weight:bold;color:var(--blue);}
-.faq-a{color:var(--gray);margin-top:.4rem;}
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-top: 14px;
+      max-width: 700px;
+    }
 
-/* ===== FORM ===== */
-form{
-  background:white;
-  padding:2.5rem;
-  border-radius:6px;
-  box-shadow:0 8px 30px rgba(0,0,0,.1);
-}
-form input, form textarea{
-  width:100%;
-  padding:.8rem;
-  margin-bottom:1rem;
-  border:1px solid #ccc;
-}
-form button{
-  background:var(--blue);
-  color:white;
-  border:none;
-  padding:.9rem 2.2rem;
-  font-weight:bold;
-}
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      font-weight: 600;
+    }
 
-/* ===== FOOTER ===== */
-footer{
-  background:var(--blue);
-  color:white;
-  padding:2.5rem 1.5rem;
-  text-align:center;
-}
+    section {
+      padding: 70px 20px;
+      border-top: 1px solid #111;
+    }
 
-/* ===== MOBILE ===== */
-@media (max-width:768px){
-  .carousel{height:55vh;}
-  .service-slide{
-    flex-direction:column;
-    text-align:center;
-  }
-  .service-slide img{width:100%;height:200px;}
-}
-</style>
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      border-top: 1px solid #111;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+      header { justify-content: center; }
+      .hero h1 { font-size: 34px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <nav>
+  <header>
     <div class="logo">
-      <img src="logo.png" alt="Russell Security Logo">
+      <img src="assets/logo.png" alt="Russell Security Logo">
     </div>
-  </nav>
-</header>
 
-<!-- HERO CAROUSEL -->
-<div class="carousel">
-  <div class="carousel-slide active" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyczIxaGxvbnd1b2hlcWluNml6MW83bGVtcTZrbjV5aGJpNmpreGVvMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XAEfNyJgegrcC6vI58/giphy.gif')"></div>
-  <div class="carousel-slide" style="background-image:url('https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUybnd3aXBvczU4MnRmNW9ldDB2aGo2Zm0wZ2swNnZzOTlsaWJsaWlwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p8UYAuBwP5BfZrTM4w/giphy.gif')"></div>
-  <div class="carousel-slide" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMTRkaWZlYzBhdmNsZXFsd3Fsd3FjNDdxdnl5Z2p3dXhxeXF2aWQwODJyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZM3kl2rKQ5cGyRPhWi/giphy.gif')"></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <div class="carousel-overlay"></div>
-  <div class="carousel-text">
-    <img src="logo.png" style="height:90px">
-    <h1>Professional Security Services</h1>
-    <p>Guards • Patrols • Monitoring • Fire Watch</p>
-    <a class="cta" href="#contact">Request Assessment</a>
-  </div>
-</div>
+  <main>
+    <section class="hero">
+      <h1>Russell Security</h1>
+      <p>
+        Elite security services for your business, property, and events. Reliable, professional, and trusted.
+      </p>
+      <a class="btn" href="#contact">Book Security</a>
+    </section>
 
-<!-- SERVICES CAROUSEL -->
-<section class="container">
-  <h2>Our Services (Auto Carousel)</h2>
-  <div class="service-carousel">
-    <div class="service-slide active">
-      <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUybnd3aXBvczU4MnRmNW9ldDB2aGo2Zm0wZ2swNnZzOTlsaWJsaWlwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p8UYAuBwP5BfZrTM4w/giphy.gif">
-      <div class="info">
-        <h3>Security Guard Services</h3>
-        <p>Uniformed, licensed guards for visible deterrence and rapid response.</p>
-        <a class="btn" href="#contact">Request Guard Quote</a>
+    <section id="services">
+      <div class="section-title">Services</div>
+      <div class="grid">
+        <div class="card">
+          <h3>On-Site Security</h3>
+          <p>24/7 monitoring and protection for commercial properties and events.</p>
+        </div>
+        <div class="card">
+          <h3>Mobile Patrols</h3>
+          <p>Regular patrols for neighborhoods, businesses, and construction sites.</p>
+        </div>
+        <div class="card">
+          <h3>Security Consulting</h3>
+          <p>Risk assessment, planning, and strategy to protect your assets.</p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="service-slide">
-      <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyczIxaGxvbnd1b2hlcWluNml6MW83bGVtcTZrbjV5aGJpNmpreGVvMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XAEfNyJgegrcC6vI58/giphy.gif">
-      <div class="info">
-        <h3>Video Monitoring</h3>
-        <p>24/7 CCTV monitoring with real-time intervention.</p>
-        <a class="btn" href="#contact">Request Monitoring</a>
+    <section id="about">
+      <div class="section-title">About</div>
+      <div style="max-width: 900px; margin: 0 auto; color: var(--muted); line-height: 1.6;">
+        Russell Security has been providing professional security services for years. Our team is trained, licensed, and ready to protect your business or event with integrity and excellence.
       </div>
-    </div>
+    </section>
 
-    <div class="service-slide">
-      <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMTRkaWZlYzBhdmNsZXFsd3Fsd3FjNDdxdnl5Z2p3dXhxeXF2aWQwODJyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZM3kl2rKQ5cGyRPhWi/giphy.gif">
-      <div class="info">
-        <h3>Patrol & Response</h3>
-        <p>Mobile patrol routes reduce theft, vandalism, and trespassing.</p>
-        <a class="btn" href="#contact">Request Patrol</a>
+    <section id="contact">
+      <div class="section-title">Contact</div>
+      <div style="max-width: 600px; margin: 0 auto; text-align: center; color: var(--muted);">
+        <p>Call or text: (555) 555-5555</p>
+        <p>Email: info@russellsecurity.com</p>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- INFO CARDS -->
-<section class="container">
-  <h2>Why Choose Russell Security</h2>
-  <div class="grid-3">
-    <div class="card"><h3>Licensed & Trained Staff</h3><p>BSIS licensed guards and ongoing training.</p></div>
-    <div class="card"><h3>Fast Deployment</h3><p>Often deploy within 24–48 hours.</p></div>
-    <div class="card"><h3>24/7 Coverage</h3><p>Day & night security operations with real-time reporting.</p></div>
-    <div class="card"><h3>Customized Plans</h3><p>Security designed for your specific property and risks.</p></div>
-    <div class="card"><h3>Reliable Communication</h3><p>Clear reporting and quick escalation.</p></div>
-    <div class="card"><h3>Community Focused</h3><p>Trusted by HOAs and commercial properties.</p></div>
-  </div>
-</section>
-
-<!-- INDUSTRIES -->
-<section class="container">
-  <h2>Industries We Protect</h2>
-  <div class="industry-strip">
-    <div class="industry">HOAs & Residential Communities</div>
-    <div class="industry">Retail & Shopping Centers</div>
-    <div class="industry">Construction Sites</div>
-    <div class="industry">Corporate Offices</div>
-    <div class="industry">Healthcare Facilities</div>
-    <div class="industry">Industrial & Logistics</div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="container">
-  <h2>Client Testimonials</h2>
-  <div class="testimonial">“Crime dropped dramatically after Russell Security took over our site.”</div>
-  <div class="testimonial">“Professional guards and fast response every time.”</div>
-</section>
-
-<!-- FAQ -->
-<section class="container">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q">Are your guards licensed?</div><div class="faq-a">Yes, all guards are BSIS licensed and trained.</div></div>
-  <div class="faq-item"><div class="faq-q">Do you offer 24/7 service?</div><div class="faq-a">Yes, we operate around the clock.</div></div>
-  <div class="faq-item"><div class="faq-q">How fast can you deploy?</div><div class="faq-a">Often within 24–48 hours after assessment.</div></div>
-</section>
-
-<!-- CONTACT -->
-<section class="container" id="contact">
-  <h2>Request a Security Quote</h2>
-  <form>
-    <input placeholder="Name">
-    <input placeholder="Email">
-    <input placeholder="Phone">
-    <textarea placeholder="Tell us about your site"></textarea>
-    <button>Submit Request</button>
-  </form>
-</section>
-
-<!-- MAP -->
-<section class="container">
-  <iframe src="https://www.google.com/maps?q=Upland,CA&output=embed" width="100%" height="350" style="border:0"></iframe>
-</section>
-
-<footer>
-  📞 909-608-7233 | customerservice@russellsecurity.us  
-  <br>© 2026 Russell Security & Staffing, Inc.
-</footer>
-
-<script>
-/* HERO CAROUSEL */
-const slides = document.querySelectorAll('.carousel-slide');
-let index = 0;
-setInterval(() => {
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
-}, 5500);
-
-/* SERVICES CAROUSEL */
-const serviceSlides = document.querySelectorAll('.service-slide');
-let serviceIndex = 0;
-setInterval(() => {
-  serviceSlides[serviceIndex].classList.remove('active');
-  serviceIndex = (serviceIndex + 1) % serviceSlides.length;
-  serviceSlides[serviceIndex].classList.add('active');
-}, 4000);
-</script>
+  <footer class="footer">
+    © 2026 Russell Security — All Rights Reserved
+  </footer>
 
 </body>
 </html>

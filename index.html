@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russell Security & Staffing</title>
+
+<style>
+:root{
+  --blue:#0a4ea3;
+  --lightblue:#e9f1fb;
+  --white:#ffffff;
+  --gray:#4a5b6a;
+  --glass:rgba(255,255,255,.85);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--lightblue);
+  color:#102233;
+  line-height:1.6;
+}
+
+/* ================= HEADER ================= */
+header{
+  position:sticky;top:0;z-index:999;
+  background:var(--white);
+  border-bottom:2px solid var(--blue);
+}
+nav{
+  max-width:1400px;margin:auto;
+  display:flex;align-items:center;
+  padding:1rem 1.5rem;
+}
+.logo img{height:52px;}
+
+/* ================= CAROUSELS ================= */
+.carousel{
+  position:relative;
+  height:70vh;
+  overflow:hidden;
+}
+.carousel-slide{
+  position:absolute;inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1.4s ease-in-out;
+}
+.carousel-slide.active{opacity:1;}
+.carousel-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(10,78,163,.25),rgba(10,78,163,.85));
+}
+.carousel-text{
+  position:absolute;z-index:2;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:white;
+  width:90%;
+}
+.carousel-text h1{
+  font-size:clamp(2.5rem,5vw,4rem);
+}
+.carousel-text p{
+  margin-top:1rem;font-size:1.15rem;
+}
+.cta{
+  display:inline-block;
+  margin-top:2rem;
+  padding:.9rem 2.5rem;
+  background:white;
+  color:var(--blue);
+  font-weight:bold;
+  border-radius:4px;
+}
+
+/* ================= SECTIONS ================= */
+section{padding:4rem 1.5rem;}
+.container{max-width:1400px;margin:auto;}
+h2{color:var(--blue);margin-bottom:1.5rem;}
+
+/* ================= INFO CARDS ================= */
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+}
+.card{
+  background:var(--white);
+  border-radius:6px;
+  padding:2rem;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-10px);}
+.card h3{color:var(--blue);margin-bottom:.5rem;}
+.card p{color:var(--gray);}
+
+/* ================= STATS ================= */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:2rem;
+  text-align:center;
+}
+.stat{font-size:2.8rem;color:var(--blue);font-weight:bold;}
+
+/* ================= TESTIMONIALS ================= */
+.testimonial{
+  background:white;
+  padding:2rem;
+  border-left:6px solid var(--blue);
+  margin-bottom:1.5rem;
+}
+
+/* ================= FAQ ================= */
+.faq-item{margin-bottom:1.5rem;}
+.faq-q{font-weight:bold;color:var(--blue);}
+.faq-a{color:var(--gray);margin-top:.4rem;}
+
+/* ================= FORM ================= */
+form{
+  background:white;
+  padding:2.5rem;
+  border-radius:6px;
+  box-shadow:0 8px 30px rgba(0,0,0,.1);
+}
+form input, form textarea{
+  width:100%;
+  padding:.8rem;
+  margin-bottom:1rem;
+  border:1px solid #ccc;
+}
+form button{
+  background:var(--blue);
+  color:white;
+  border:none;
+  padding:.9rem 2.2rem;
+  font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--blue);
+  color:white;
+  padding:2.5rem 1.5rem;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="https://www.russellsecurity.us/skin/logo.png" alt="Russell Security Logo">
+    </div>
+  </nav>
+</header>
+
+<!-- HERO CAROUSEL -->
+<div class="carousel">
+  <div class="carousel-slide active" style="background-image:url('https://media.giphy.com/media/l0HlPjezGY8w5QjLi/giphy.gif')"></div>
+  <div class="carousel-slide" style="background-image:url('https://media.giphy.com/media/xUPGcEliCc7bETyfO8/giphy.gif')"></div>
+  <div class="carousel-slide" style="background-image:url('https://media.giphy.com/media/3o7TKxohv3vJk0gRxe/giphy.gif')"></div>
+  <div class="carousel-overlay"></div>
+  <div class="carousel-text">
+    <img src="https://www.russellsecurity.us/skin/logo.png" style="height:90px">
+    <h1>Professional Security Services</h1>
+    <p>Guards • Patrols • Monitoring • Fire Watch</p>
+    <a class="cta" href="#contact">Request Assessment</a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="container">
+<h2>Our Services</h2>
+<div class="grid-3">
+<div class="card"><h3>On-Site Security Guards</h3><p>Uniformed, licensed guards for visible deterrence and rapid response.</p></div>
+<div class="card"><h3>Mobile Patrol</h3><p>Randomized patrol routes reduce theft, vandalism, and trespassing.</p></div>
+<div class="card"><h3>Live Video Monitoring</h3><p>24/7 CCTV monitoring with real-time intervention.</p></div>
+<div class="card"><h3>Parking Enforcement</h3><p>HOA and commercial parking enforcement programs.</p></div>
+<div class="card"><h3>Fire Watch</h3><p>Code-compliant protection during alarm system outages.</p></div>
+<div class="card"><h3>Lock / Unlock</h3><p>Scheduled site access control and staffing support.</p></div>
+</div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="container">
+<h2>Industries We Protect</h2>
+<div class="grid-3">
+<div class="card">HOAs & Residential Communities</div>
+<div class="card">Retail & Shopping Centers</div>
+<div class="card">Construction Sites</div>
+<div class="card">Corporate Offices</div>
+<div class="card">Healthcare Facilities</div>
+<div class="card">Industrial & Logistics</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="container stats">
+<div><div class="stat">30+</div>Years Experience</div>
+<div><div class="stat">24/7</div>Operations</div>
+<div><div class="stat">SoCal</div>Coverage</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="container">
+<h2>Client Testimonials</h2>
+<div class="testimonial">“Crime dropped dramatically after Russell Security took over our site.”</div>
+<div class="testimonial">“Professional guards and fast response every time.”</div>
+</section>
+
+<!-- FAQ -->
+<section class="container">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q">Are your guards licensed?</div><div class="faq-a">Yes, all guards are BSIS licensed and trained.</div></div>
+<div class="faq-item"><div class="faq-q">Do you offer 24/7 service?</div><div class="faq-a">Yes, we operate around the clock.</div></div>
+<div class="faq-item"><div class="faq-q">How fast can you deploy?</div><div class="faq-a">Often within 24–48 hours after assessment.</div></div>
+</section>
+
+<!-- CONTACT -->
+<section class="container" id="contact">
+<h2>Request a Security Quote</h2>
+<form>
+<input placeholder="Name">
+<input placeholder="Email">
+<input placeholder="Phone">
+<textarea placeholder="Tell us about your site"></textarea>
+<button>Submit Request</button>
+</form>
+</section>
+
+<!-- MAP -->
+<section class="container">
+<iframe src="https://www.google.com/maps?q=Upland,CA&output=embed" width="100%" height="350" style="border:0"></iframe>
+</section>
+
+<footer>
+📞 909-608-7233 | customerservice@russellsecurity.us  
+<br>© 2026 Russell Security & Staffing, Inc.
+</footer>
+
+<script>
+const slides=document.querySelectorAll('.carousel-slide');
+let i=0;
+setInterval(()=>{
+slides[i].classList.remove('active');
+i=(i+1)%slides.length;
+slides[i].classList.add('active');
+},5500);
+</script>
+
+</body>
+</html>

@@ -1,133 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Russell Security & Staffing — Security Services in Southern California</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Russell Security & Staffing</title>
 
-  <style>
-    /* --- Reset & base styles --- */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: Arial, sans-serif; line-height:1.6; color:#222; }
-    a { text-decoration:none; color:#0056b3; }
-    .container { max-width:1200px; margin:0 auto; padding:1rem; }
-    header { background:black; color:white; padding:1rem 0; }
-    header .logo { font-size:2rem; font-weight:bold; }
-    nav ul { list-style:none; display:flex; gap:1rem; justify-content:center; }
-    nav ul li a { color:white; }
-    .hero { position:relative; text-align:center; color:white; }
-    .hero img { width:100%; height:auto; object-fit:cover; }
-    .hero .overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4); }
-    .hero .hero-content { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); }
-    .btn { display:inline-block; background:#0056b3; color:white; padding:.75rem 1.5rem; border-radius:4px; font-weight:bold; }
-    .grid { display:grid; gap:1rem; }
-    .grid-3 { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
-    footer { background:#111; color:#eee; padding:1rem 0; text-align:center; font-size:.9rem; }
-  </style>
+<style>
+:root {
+  --black: #000;
+  --white: #fff;
+  --gray: #cfcfcf;
+  --glass: rgba(255,255,255,0.08);
+  --blur: blur(14px);
+  --accent: #0a84ff;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+section {
+  padding: 6rem 1.5rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-gif {
+  position: absolute;
+  inset: 0;
+  background: url("images/security-hero-8k.gif") center/cover no-repeat;
+  filter: contrast(1.15) brightness(.65);
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.85)),
+    radial-gradient(circle at center, transparent 40%, black 85%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  letter-spacing: -1px;
+}
+
+.hero p {
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+
+.hero .cta {
+  margin-top: 2.5rem;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.hero .cta:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* ================= SERVICES ================= */
+
+.services {
+  background: linear-gradient(to bottom, #050505, #000);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 2rem;
+  transition: transform .4s ease, border .4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  border-color: var(--white);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.2);
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  margin-bottom: .75rem;
+}
+
+/* ================= STAT STRIP ================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  color: var(--gray);
+}
+
+/* ================= WHY ================= */
+
+.why {
+  background: #000;
+}
+
+.why ul {
+  max-width: 900px;
+  margin: auto;
+  list-style: none;
+}
+
+.why li {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background: #000;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+footer p {
+  color: var(--gray);
+  font-size: .95rem;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  section { padding: 4rem 1.2rem; }
+  .hero h1 { font-size: 2.4rem; }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="logo">Russell Security</div>
-      <nav>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#why">Why Us</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-gif"></div>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <!-- 8K Security Live Monitoring / Uniformed Guard Image -->
-    <img src="images/security-hero-8k.jpg" alt="Security Guard Patrolling — 8K Image"/>
-    <div class="overlay"></div>
-    <div class="hero-content container">
-      <h1>Licensed Security Services for Homes & Businesses</h1>
-      <p>Protecting property and people with guards, mobile patrols & live monitoring</p>
-      <a href="#contact" class="btn">Get a Free Quote</a>
-    </div>
-  </section>
+  <div class="hero-content container">
+    <h1>Advanced Security.  
+    Absolute Control.</h1>
+    <p>Licensed guards, mobile patrols, live video monitoring & rapid response across Southern California</p>
+    <a class="cta" href="#contact">Request Security Assessment</a>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" class="container" style="margin-top:2rem;">
-    <h2 style="text-align:center; margin-bottom:1rem;">Our Services</h2>
-    <div class="grid grid-3">
-      <div>
-        <img src="images/on-site-guard-8k.jpg" alt="On-Site Security Guard — 8K"/>
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <h2>Integrated Security Services</h2>
+
+    <div class="services-grid">
+      <div class="card">
+        <img src="images/guard-8k.jpg">
         <h3>Security Officers</h3>
-        <p>Uniformed, trained guards for standing posts & deterrence at your site.</p>
+        <p>Uniformed professionals trained for deterrence, reporting, and on-site response.</p>
       </div>
-      <div>
-        <img src="images/mobile-patrol-8k.jpg" alt="Mobile Patrol — 8K"/>
-        <h3>Mobile Patrols</h3>
-        <p>Random patrol visits to deter theft and vandalism on your property.</p>
+
+      <div class="card">
+        <img src="images/patrol-8k.jpg">
+        <h3>Mobile Patrol</h3>
+        <p>Randomized patrol routes to eliminate predictability and reduce incidents.</p>
       </div>
-      <div>
-        <img src="images/video-monitoring-8k.jpg" alt="Live Video Monitoring — 8K"/>
+
+      <div class="card">
+        <img src="images/cameras-8k.jpg">
         <h3>Live Video Monitoring</h3>
-        <p>24/7 eyes on your property with trained security professionals.  [oai_citation:0‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)</p>
+        <p>24/7 monitored surveillance with real-time intervention.</p>
       </div>
 
-      <div>
-        <img src="images/parking-enforcement-8k.jpg" alt="Parking Enforcement — 8K"/>
-        <h3>Parking Enforcement</h3>
-        <p>Enforce parking rules for residential & commercial sites.  [oai_citation:1‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)</p>
-      </div>
-      <div>
-        <img src="images/fire-watch-8k.jpg" alt="Fire Watch Service — 8K"/>
-        <h3>Fire Watch Services</h3>
-        <p>Qualified guards to monitor property during safety system outages.  [oai_citation:2‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)</p>
-      </div>
-      <div>
-        <img src="images/camera-installation-8k.jpg" alt="Security Camera Installation — 8K"/>
-        <h3>Camera & Tech Solutions</h3>
-        <p>Security camera sales, installation & monitoring included.  [oai_citation:3‡Russell Security](https://www.russellsecurity.us/video-cameras-surveillance.php?utm_source=chatgpt.com)</p>
+      <div class="card">
+        <img src="images/firewatch-8k.jpg">
+        <h3>Fire Watch</h3>
+        <p>Code-compliant protection during system outages or construction.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHY CHOOSE US -->
-  <section id="why" class="container" style="margin-top:3rem;">
-    <h2>Why Choose Russell Security?</h2>
+<!-- STATS -->
+<section>
+  <div class="container stats">
+    <div>
+      <div class="stat">30+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div>
+      <div class="stat">24/7</div>
+      <div class="stat-label">Monitoring</div>
+    </div>
+    <div>
+      <div class="stat">SoCal</div>
+      <div class="stat-label">Full Coverage</div>
+    </div>
+    <div>
+      <div class="stat">Licensed</div>
+      <div class="stat-label">& Insured</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="container">
+    <h2>Why Russell Security</h2>
     <ul>
-      <li>30+ years serving Southern California with reliable security solutions.  [oai_citation:4‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)</li>
-      <li>Licensed & competitively priced security guard services.  [oai_citation:5‡Russell Security](https://www.russellsecurity.us/faqs.php?utm_source=chatgpt.com)</li>
-      <li>Customized security plans to fit your needs + 24/7 dispatch support.  [oai_citation:6‡Russell Security](https://www.russellsecurity.us/faqs.php?utm_source=chatgpt.com)</li>
-      <li>Combined guards, patrols & tech solutions for maximum protection.  [oai_citation:7‡Russell Security](https://www.russellsecurity.us/faqs.php?utm_source=chatgpt.com)</li>
+      <li>✔ Proven crime reduction for commercial & residential clients</li>
+      <li>✔ Custom-engineered security strategies</li>
+      <li>✔ Integrated guards + patrols + technology</li>
+      <li>✔ Fast deployment & 24/7 dispatch</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="container" style="margin-top:3rem;">
-    <h2 style="text-align:center;">Trusted by Clients</h2>
-    <div class="grid grid-3" style="margin-top:1rem;">
-      <blockquote>
-        “Our community has seen a high reduction in crime! … no more senseless theft.” — Community Manager  [oai_citation:8‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)
-      </blockquote>
-      <blockquote>
-        “Live camera monitoring saved us time and money with vandal prevention.” — Shopping Center Owner  [oai_citation:9‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)
-      </blockquote>
-      <blockquote>
-        “They responded fast for an unscheduled fire watch — top notch service.” — Commercial Property Manager  [oai_citation:10‡Russell Security](https://www.russellsecurity.us/?utm_source=chatgpt.com)
-      </blockquote>
-    </div>
-  </section>
+<!-- FOOTER -->
+<footer id="contact">
+  <p>📞 909-608-7233 | customerservice@russellsecurity.us</p>
+  <p>Serving Southern California</p>
+  <p>© 2026 Russell Security & Staffing, Inc.</p>
+</footer>
 
-  <!-- CONTACT & FOOTER -->
-  <footer id="contact">
-    <div class="container">
-      <h3>Contact Us</h3>
-      <p>Call: <strong>909-608-7233</strong></p>
-      <p>Email: <strong>customerservice@russellsecurity.us</strong></p>
-      <p>Serving Upland, Rancho Cucamonga, Ontario & Greater SoCal.  [oai_citation:11‡Russell Security](https://russellsecurity.us/)</p>
-      <p>&copy; 2026 Russell Security & Staffing, Inc. All rights reserved.</p>
-    </div>
-  </footer>
 </body>
 </html>

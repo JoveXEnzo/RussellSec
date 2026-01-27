@@ -11,7 +11,6 @@
   --lightblue:#e9f1fb;
   --white:#ffffff;
   --gray:#4a5b6a;
-  --glass:rgba(255,255,255,.85);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -22,20 +21,24 @@ body{
   line-height:1.6;
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 header{
-  position:sticky;top:0;z-index:999;
+  position:sticky;
+  top:0;
+  z-index:999;
   background:var(--white);
   border-bottom:2px solid var(--blue);
 }
 nav{
-  max-width:1400px;margin:auto;
-  display:flex;align-items:center;
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  align-items:center;
   padding:1rem 1.5rem;
 }
 .logo img{height:52px;}
 
-/* ================= CAROUSELS ================= */
+/* ===== HERO CAROUSEL ===== */
 .carousel{
   position:relative;
   height:70vh;
@@ -54,8 +57,10 @@ nav{
   background:linear-gradient(to bottom,rgba(10,78,163,.25),rgba(10,78,163,.85));
 }
 .carousel-text{
-  position:absolute;z-index:2;
-  top:50%;left:50%;
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
   transform:translate(-50%,-50%);
   text-align:center;
   color:white;
@@ -65,7 +70,8 @@ nav{
   font-size:clamp(2.5rem,5vw,4rem);
 }
 .carousel-text p{
-  margin-top:1rem;font-size:1.15rem;
+  margin-top:1rem;
+  font-size:1.15rem;
 }
 .cta{
   display:inline-block;
@@ -77,12 +83,12 @@ nav{
   border-radius:4px;
 }
 
-/* ================= SECTIONS ================= */
+/* ===== SECTIONS ===== */
 section{padding:4rem 1.5rem;}
 .container{max-width:1400px;margin:auto;}
 h2{color:var(--blue);margin-bottom:1.5rem;}
 
-/* ================= INFO CARDS ================= */
+/* ===== GRID CARDS ===== */
 .grid-3{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -99,16 +105,59 @@ h2{color:var(--blue);margin-bottom:1.5rem;}
 .card h3{color:var(--blue);margin-bottom:.5rem;}
 .card p{color:var(--gray);}
 
-/* ================= STATS ================= */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:2rem;
-  text-align:center;
+/* ===== CAROUSEL CARDS ===== */
+.service-carousel{
+  position:relative;
+  height:320px;
+  overflow:hidden;
+  background:var(--white);
+  border-radius:8px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
-.stat{font-size:2.8rem;color:var(--blue);font-weight:bold;}
+.service-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1s ease;
+  padding:1.5rem;
+  display:flex;
+  gap:1.5rem;
+  align-items:center;
+}
+.service-slide.active{opacity:1;}
+.service-slide img{
+  width:280px;
+  height:220px;
+  object-fit:cover;
+  border-radius:8px;
+}
+.service-slide .info h3{margin:0;color:var(--blue);}
+.service-slide .info p{color:var(--gray);margin-top:.6rem;}
+.service-slide .info .btn{
+  margin-top:1rem;
+  display:inline-block;
+  padding:.7rem 1.4rem;
+  background:var(--blue);
+  color:white;
+  border-radius:4px;
+}
 
-/* ================= TESTIMONIALS ================= */
+/* ===== INDUSTRY CAROUSEL ===== */
+.industry-strip{
+  display:flex;
+  overflow:hidden;
+  gap:1rem;
+}
+.industry-strip .industry{
+  min-width:220px;
+  background:white;
+  border-radius:8px;
+  padding:1rem;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+/* ===== TESTIMONIALS ===== */
 .testimonial{
   background:white;
   padding:2rem;
@@ -116,12 +165,12 @@ h2{color:var(--blue);margin-bottom:1.5rem;}
   margin-bottom:1.5rem;
 }
 
-/* ================= FAQ ================= */
+/* ===== FAQ ===== */
 .faq-item{margin-bottom:1.5rem;}
 .faq-q{font-weight:bold;color:var(--blue);}
 .faq-a{color:var(--gray);margin-top:.4rem;}
 
-/* ================= FORM ================= */
+/* ===== FORM ===== */
 form{
   background:white;
   padding:2.5rem;
@@ -142,12 +191,22 @@ form button{
   font-weight:bold;
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer{
   background:var(--blue);
   color:white;
   padding:2.5rem 1.5rem;
   text-align:center;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+  .carousel{height:55vh;}
+  .service-slide{
+    flex-direction:column;
+    text-align:center;
+  }
+  .service-slide img{width:100%;height:200px;}
 }
 </style>
 </head>
@@ -157,103 +216,140 @@ footer{
 <header>
   <nav>
     <div class="logo">
-      <img src="https://www.russellsecurity.us/skin/logo.png" alt="Russell Security Logo">
+      <img src="logo.png" alt="Russell Security Logo">
     </div>
   </nav>
 </header>
 
 <!-- HERO CAROUSEL -->
 <div class="carousel">
-  <div class="carousel-slide active" style="background-image:url('https://media.giphy.com/media/l0HlPjezGY8w5QjLi/giphy.gif')"></div>
-  <div class="carousel-slide" style="background-image:url('https://media.giphy.com/media/xUPGcEliCc7bETyfO8/giphy.gif')"></div>
-  <div class="carousel-slide" style="background-image:url('https://media.giphy.com/media/3o7TKxohv3vJk0gRxe/giphy.gif')"></div>
+  <div class="carousel-slide active" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyczIxaGxvbnd1b2hlcWluNml6MW83bGVtcTZrbjV5aGJpNmpreGVvMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XAEfNyJgegrcC6vI58/giphy.gif')"></div>
+  <div class="carousel-slide" style="background-image:url('https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUybnd3aXBvczU4MnRmNW9ldDB2aGo2Zm0wZ2swNnZzOTlsaWJsaWlwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p8UYAuBwP5BfZrTM4w/giphy.gif')"></div>
+  <div class="carousel-slide" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMTRkaWZlYzBhdmNsZXFsd3Fsd3FjNDdxdnl5Z2p3dXhxeXF2aWQwODJyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZM3kl2rKQ5cGyRPhWi/giphy.gif')"></div>
+
   <div class="carousel-overlay"></div>
   <div class="carousel-text">
-    <img src="https://www.russellsecurity.us/skin/logo.png" style="height:90px">
+    <img src="logo.png" style="height:90px">
     <h1>Professional Security Services</h1>
     <p>Guards • Patrols • Monitoring • Fire Watch</p>
     <a class="cta" href="#contact">Request Assessment</a>
   </div>
 </div>
 
-<!-- SERVICES -->
+<!-- SERVICES CAROUSEL -->
 <section class="container">
-<h2>Our Services</h2>
-<div class="grid-3">
-<div class="card"><h3>On-Site Security Guards</h3><p>Uniformed, licensed guards for visible deterrence and rapid response.</p></div>
-<div class="card"><h3>Mobile Patrol</h3><p>Randomized patrol routes reduce theft, vandalism, and trespassing.</p></div>
-<div class="card"><h3>Live Video Monitoring</h3><p>24/7 CCTV monitoring with real-time intervention.</p></div>
-<div class="card"><h3>Parking Enforcement</h3><p>HOA and commercial parking enforcement programs.</p></div>
-<div class="card"><h3>Fire Watch</h3><p>Code-compliant protection during alarm system outages.</p></div>
-<div class="card"><h3>Lock / Unlock</h3><p>Scheduled site access control and staffing support.</p></div>
-</div>
+  <h2>Our Services (Auto Carousel)</h2>
+  <div class="service-carousel">
+    <div class="service-slide active">
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUybnd3aXBvczU4MnRmNW9ldDB2aGo2Zm0wZ2swNnZzOTlsaWJsaWlwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p8UYAuBwP5BfZrTM4w/giphy.gif">
+      <div class="info">
+        <h3>Security Guard Services</h3>
+        <p>Uniformed, licensed guards for visible deterrence and rapid response.</p>
+        <a class="btn" href="#contact">Request Guard Quote</a>
+      </div>
+    </div>
+
+    <div class="service-slide">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyczIxaGxvbnd1b2hlcWluNml6MW83bGVtcTZrbjV5aGJpNmpreGVvMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XAEfNyJgegrcC6vI58/giphy.gif">
+      <div class="info">
+        <h3>Video Monitoring</h3>
+        <p>24/7 CCTV monitoring with real-time intervention.</p>
+        <a class="btn" href="#contact">Request Monitoring</a>
+      </div>
+    </div>
+
+    <div class="service-slide">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMTRkaWZlYzBhdmNsZXFsd3Fsd3FjNDdxdnl5Z2p3dXhxeXF2aWQwODJyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZM3kl2rKQ5cGyRPhWi/giphy.gif">
+      <div class="info">
+        <h3>Patrol & Response</h3>
+        <p>Mobile patrol routes reduce theft, vandalism, and trespassing.</p>
+        <a class="btn" href="#contact">Request Patrol</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO CARDS -->
+<section class="container">
+  <h2>Why Choose Russell Security</h2>
+  <div class="grid-3">
+    <div class="card"><h3>Licensed & Trained Staff</h3><p>BSIS licensed guards and ongoing training.</p></div>
+    <div class="card"><h3>Fast Deployment</h3><p>Often deploy within 24–48 hours.</p></div>
+    <div class="card"><h3>24/7 Coverage</h3><p>Day & night security operations with real-time reporting.</p></div>
+    <div class="card"><h3>Customized Plans</h3><p>Security designed for your specific property and risks.</p></div>
+    <div class="card"><h3>Reliable Communication</h3><p>Clear reporting and quick escalation.</p></div>
+    <div class="card"><h3>Community Focused</h3><p>Trusted by HOAs and commercial properties.</p></div>
+  </div>
 </section>
 
 <!-- INDUSTRIES -->
 <section class="container">
-<h2>Industries We Protect</h2>
-<div class="grid-3">
-<div class="card">HOAs & Residential Communities</div>
-<div class="card">Retail & Shopping Centers</div>
-<div class="card">Construction Sites</div>
-<div class="card">Corporate Offices</div>
-<div class="card">Healthcare Facilities</div>
-<div class="card">Industrial & Logistics</div>
-</div>
-</section>
-
-<!-- STATS -->
-<section class="container stats">
-<div><div class="stat">30+</div>Years Experience</div>
-<div><div class="stat">24/7</div>Operations</div>
-<div><div class="stat">SoCal</div>Coverage</div>
+  <h2>Industries We Protect</h2>
+  <div class="industry-strip">
+    <div class="industry">HOAs & Residential Communities</div>
+    <div class="industry">Retail & Shopping Centers</div>
+    <div class="industry">Construction Sites</div>
+    <div class="industry">Corporate Offices</div>
+    <div class="industry">Healthcare Facilities</div>
+    <div class="industry">Industrial & Logistics</div>
+  </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="container">
-<h2>Client Testimonials</h2>
-<div class="testimonial">“Crime dropped dramatically after Russell Security took over our site.”</div>
-<div class="testimonial">“Professional guards and fast response every time.”</div>
+  <h2>Client Testimonials</h2>
+  <div class="testimonial">“Crime dropped dramatically after Russell Security took over our site.”</div>
+  <div class="testimonial">“Professional guards and fast response every time.”</div>
 </section>
 
 <!-- FAQ -->
 <section class="container">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item"><div class="faq-q">Are your guards licensed?</div><div class="faq-a">Yes, all guards are BSIS licensed and trained.</div></div>
-<div class="faq-item"><div class="faq-q">Do you offer 24/7 service?</div><div class="faq-a">Yes, we operate around the clock.</div></div>
-<div class="faq-item"><div class="faq-q">How fast can you deploy?</div><div class="faq-a">Often within 24–48 hours after assessment.</div></div>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">Are your guards licensed?</div><div class="faq-a">Yes, all guards are BSIS licensed and trained.</div></div>
+  <div class="faq-item"><div class="faq-q">Do you offer 24/7 service?</div><div class="faq-a">Yes, we operate around the clock.</div></div>
+  <div class="faq-item"><div class="faq-q">How fast can you deploy?</div><div class="faq-a">Often within 24–48 hours after assessment.</div></div>
 </section>
 
 <!-- CONTACT -->
 <section class="container" id="contact">
-<h2>Request a Security Quote</h2>
-<form>
-<input placeholder="Name">
-<input placeholder="Email">
-<input placeholder="Phone">
-<textarea placeholder="Tell us about your site"></textarea>
-<button>Submit Request</button>
-</form>
+  <h2>Request a Security Quote</h2>
+  <form>
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <input placeholder="Phone">
+    <textarea placeholder="Tell us about your site"></textarea>
+    <button>Submit Request</button>
+  </form>
 </section>
 
 <!-- MAP -->
 <section class="container">
-<iframe src="https://www.google.com/maps?q=Upland,CA&output=embed" width="100%" height="350" style="border:0"></iframe>
+  <iframe src="https://www.google.com/maps?q=Upland,CA&output=embed" width="100%" height="350" style="border:0"></iframe>
 </section>
 
 <footer>
-📞 909-608-7233 | customerservice@russellsecurity.us  
-<br>© 2026 Russell Security & Staffing, Inc.
+  📞 909-608-7233 | customerservice@russellsecurity.us  
+  <br>© 2026 Russell Security & Staffing, Inc.
 </footer>
 
 <script>
-const slides=document.querySelectorAll('.carousel-slide');
-let i=0;
-setInterval(()=>{
-slides[i].classList.remove('active');
-i=(i+1)%slides.length;
-slides[i].classList.add('active');
-},5500);
+/* HERO CAROUSEL */
+const slides = document.querySelectorAll('.carousel-slide');
+let index = 0;
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 5500);
+
+/* SERVICES CAROUSEL */
+const serviceSlides = document.querySelectorAll('.service-slide');
+let serviceIndex = 0;
+setInterval(() => {
+  serviceSlides[serviceIndex].classList.remove('active');
+  serviceIndex = (serviceIndex + 1) % serviceSlides.length;
+  serviceSlides[serviceIndex].classList.add('active');
+}, 4000);
 </script>
 
 </body>

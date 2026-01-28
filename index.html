@@ -3,44 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Russell Security</title>
+  <title>Russell Security - Elite Landing</title>
   <style>
     /* ===== Global Styles ===== */
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
       background-color: royalblue;
       color: white;
-      overflow-x: hidden;
     }
+
+    a { text-decoration: none; }
 
     /* ===== Navbar ===== */
     .navbar {
       display: flex;
-      justify-content: flex-end;
-      background-color: royalblue;
-      padding: 15px 20px;
-      position: absolute;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: rgba(65, 105, 225, 0.9); /* semi-transparent */
+      position: fixed;
       width: 100%;
-      z-index: 10;
+      z-index: 100;
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar img {
+      height: 80px;
+      transition: transform 0.3s;
+    }
+
+    .navbar img:hover {
+      transform: scale(1.1);
     }
 
     .nav-links {
       display: flex;
-      gap: 15px;
-      font-size: 1em;
+      gap: 40px;
+      list-style: none;
+      position: relative;
+    }
+
+    .nav-links li {
+      position: relative;
     }
 
     .nav-links a {
       color: white;
-      text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      padding: 10px 5px;
+      display: block;
+      transition: 0.3s;
     }
 
     .nav-links a:hover {
       color: #ffd700;
+    }
+
+    /* Dropdown menu */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: royalblue;
+      flex-direction: column;
+      min-width: 180px;
+      border-radius: 5px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      overflow: hidden;
+      z-index: 50;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown a {
+      padding: 12px 20px;
+    }
+
+    .nav-links li:hover .dropdown {
+      display: flex;
+    }
+
+    /* Dropdown animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== Hero Section ===== */
@@ -52,81 +101,126 @@
       text-align: center;
       height: 100vh;
       padding: 20px;
+      margin-top: 120px; /* account for fixed navbar */
     }
 
     .hero img {
-      width: 100%;
-      max-width: 500px; /* massive but constrained on smaller screens */
+      width: 90%;
+      max-width: 700px;
       height: auto;
       margin-bottom: 30px;
+      animation: logoZoom 1.5s ease-out forwards;
+    }
+
+    @keyframes logoZoom {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .hero h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      animation: fadeUp 1.2s ease-out forwards;
     }
 
     .hero p {
-      font-size: 1.2em;
-      max-width: 350px;
-      margin-bottom: 25px;
+      font-size: 1.3em;
+      max-width: 600px;
+      margin-bottom: 30px;
+      animation: fadeUp 1.5s ease-out forwards;
     }
 
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ===== CTA Button ===== */
     .hero .cta-btn {
-      padding: 12px 30px;
-      background-color: #ffd700;
+      padding: 15px 50px;
+      background: linear-gradient(45deg, #ffd700, #ffb700);
       color: royalblue;
       font-weight: bold;
+      font-size: 1.2em;
       border: none;
-      border-radius: 5px;
-      font-size: 1.1em;
+      border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.3s;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease-in-out;
     }
 
     .hero .cta-btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.4);
     }
 
-    /* ===== Mobile Adjustments ===== */
-    @media (max-width: 430px) {
-      .hero img {
-        max-width: 90%; /* takes almost full screen width */
-      }
+    /* ===== Advanced Effects ===== */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-        max-width: 300px;
-      }
-
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
       .nav-links {
-        gap: 10px;
-        font-size: 0.95em;
+        gap: 20px;
       }
+
+      .hero h1 { font-size: 2.2em; }
+      .hero p { font-size: 1.1em; max-width: 300px; }
+      .hero img { max-width: 90%; }
     }
+
+    @media (max-width: 430px) {
+      .nav-links { display: none; } /* hide for mobile, you can add hamburger later */
+      .hero h1 { font-size: 1.8em; }
+      .hero p { font-size: 1em; max-width: 280px; }
+      .hero img { max-width: 95%; }
+    }
+
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
+  <nav class="navbar">
+    <img src="russellsec.jpg" alt="Russell Security Logo">
+    <ul class="nav-links">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">Services ▾</a>
+        <div class="dropdown">
+          <a href="#">Corporate Security</a>
+          <a href="#">Event Security</a>
+          <a href="#">Personal Protection</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">About ▾</a>
+        <div class="dropdown">
+          <a href="#">Our Team</a>
+          <a href="#">History</a>
+          <a href="#">Mission</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
   <div class="hero">
     <img src="russellsec.jpg" alt="Russell Security Logo">
     <h1>Russell Security</h1>
-    <p>Your safety, our mission. Professional security solutions for businesses and individuals alike.</p>
+    <p>Your safety, our mission. Elite security solutions for businesses and individuals alike.</p>
     <button class="cta-btn">Get Started</button>
   </div>
 

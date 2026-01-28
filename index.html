@@ -1456,9 +1456,9 @@ document.querySelectorAll('.carousel').forEach(c=>{
 </body>
 </html>
 
-<!-- ===== FLOATING CREDIT SNIPPET ===== -->
-<section class="credit-snippet">
-  <div class="credit-card">
+<!-- ===== GOLD 7D FLOATING CREDIT SNIPPET ===== -->
+<section class="credit-7d-snippet">
+  <div class="credit-7d-card">
     <h2>WEB CODE CREATED BY</h2>
     <p class="name">Jovannie Mediano</p>
     <p class="email">Email: jovanniemediano@icloud.com</p>
@@ -1466,71 +1466,94 @@ document.querySelectorAll('.carousel').forEach(c=>{
 </section>
 
 <style>
-/* ===== CREDIT SNIPPET CONTAINER ===== */
-.credit-snippet {
+/* ===== CONTAINER WITH DEPTH ===== */
+.credit-7d-snippet {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  perspective: 1500px; /* gives strong 3D depth */
+  height: 500px;
+  perspective: 2000px; /* ultra-strong depth */
   margin: 50px 0;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
 }
 
-/* ===== FLOATING CARD ===== */
-.credit-card {
-  background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
-  border-radius: 20px;
-  padding: 40px 60px;
+/* ===== GOLD 7D CARD ===== */
+.credit-7d-card {
+  background: linear-gradient(135deg, #ffd700, #fff8dc, #f0e68c);
+  border-radius: 25px;
+  padding: 50px 70px;
   color: #fff;
   text-align: center;
   font-family: 'Russo One', sans-serif;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255,255,255,0.05);
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.6), 
+    0 0 50px rgba(255,215,0,0.5), 
+    0 0 100px rgba(255,223,0,0.2);
   transform-style: preserve-3d;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
 }
 
-/* 3D Hover POP EFFECT */
-.credit-card:hover {
-  transform: rotateY(10deg) rotateX(10deg) translateZ(30px);
-  box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 60px rgba(255,255,255,0.1);
+/* ===== FLOATING / DRIFT ANIMATION ===== */
+@keyframes float {
+  0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-15px) rotateX(3deg) rotateY(-3deg); }
+  50% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+  75% { transform: translateY(15px) rotateX(-3deg) rotateY(3deg); }
+  100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
 }
 
-/* TEXT STYLING */
-.credit-card h2 {
-  font-size: 1.5rem;
+/* ===== 7D HOVER POP ===== */
+.credit-7d-card:hover {
+  transform: rotateY(15deg) rotateX(15deg) translateZ(40px);
+  box-shadow: 
+    0 30px 80px rgba(0,0,0,0.7), 
+    0 0 70px rgba(255,215,0,0.7), 
+    0 0 120px rgba(255,223,0,0.3);
+}
+
+/* ===== TEXT ===== */
+.credit-7d-card h2 {
+  font-size: 1.6rem;
   letter-spacing: 2px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  background: linear-gradient(120deg, #fff, #ccc);
+  background: linear-gradient(145deg, #fff, #ffd700, #ffe599);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  text-shadow:
+    0 2px 5px rgba(0,0,0,0.5),
+    0 0 10px rgba(255,223,0,0.7);
 }
 
-.credit-card .name {
-  font-size: 2rem;
+.credit-7d-card .name {
+  font-size: 2.5rem;
   margin-bottom: 10px;
-  background: linear-gradient(145deg, #00ffff, #00aaff);
+  background: linear-gradient(135deg, #ffd700, #fffacd, #fdf5e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  text-shadow:
+    0 3px 10px rgba(0,0,0,0.6),
+    0 0 15px rgba(255,223,0,0.9);
 }
 
-.credit-card .email {
+.credit-7d-card .email {
   font-size: 1rem;
-  color: #ddd;
+  color: #fff;
   letter-spacing: 0.5px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width: 768px){
-  .credit-card {
+  .credit-7d-card {
     padding: 30px 40px;
   }
-  .credit-card .name {
-    font-size: 1.5rem;
+  .credit-7d-card .name {
+    font-size: 1.8rem;
   }
-  .credit-card h2 {
+  .credit-7d-card h2 {
     font-size: 1.2rem;
   }
 }

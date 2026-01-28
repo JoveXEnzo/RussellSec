@@ -263,3 +263,275 @@ carousels.forEach(c=>{
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russell Security | California Security Infrastructure</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#0a1f33;
+  --red:#8b0000;
+  --green:#0b3d2e;
+  --gold:#cfa84a;
+  --gray:#f1f3f6;
+  --dark:#050505;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.6;
+}
+
+section{padding:100px 6%}
+h1,h2,h3{margin-top:0}
+img{width:100%;display:block;border-radius:6px}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1549921296-3fd62c7a1c2f?auto=format&fit=crop&w=1600&q=60")
+    center/cover;
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{max-width:1000px}
+.hero h1{font-size:clamp(3rem,5vw,5rem);font-weight:900}
+.hero p{font-size:1.25rem;max-width:800px}
+
+.cta{
+  display:inline-block;
+  margin-top:30px;
+  padding:18px 38px;
+  background:var(--gold);
+  color:#000;
+  font-weight:800;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+/* GRID BLOCK SYSTEM */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+}
+
+/* CARD SYSTEM */
+.card{
+  background:linear-gradient(180deg,#0e0e0e,#000);
+  border:1px solid #222;
+  padding:30px;
+}
+.card.blue{border-top:6px solid var(--blue)}
+.card.red{border-top:6px solid var(--red)}
+.card.green{border-top:6px solid var(--green)}
+.card.gold{border-top:6px solid var(--gold)}
+.card.gray{border-top:6px solid #777}
+
+/* IMAGE + TEXT BLOCK */
+.media{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+.media.reverse{grid-template-columns:1fr 1fr}
+@media(max-width:900px){
+  .media{grid-template-columns:1fr}
+}
+
+/* STATS */
+.stats{
+  background:var(--gray);
+  color:#000;
+}
+.stat{
+  background:#fff;
+  padding:30px;
+  border-left:8px solid var(--gold);
+}
+.stat h2{font-size:3rem;margin:0;color:var(--blue)}
+
+/* AUTO CAROUSEL */
+.carousel{
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+}
+.carousel::-webkit-scrollbar{display:none}
+.slide{
+  min-width:340px;
+  scroll-snap-align:start;
+  background:#0d0d0d;
+  border:1px solid #222;
+  padding:25px;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  padding:80px 6%;
+  text-align:center;
+  opacity:.85;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Security Is Infrastructure. Not an Expense.</h1>
+    <p>
+      Russell Security provides layered, professional, compliance-driven security solutions
+      engineered to protect people, property, revenue streams, and long-term business viability
+      throughout California.
+    </p>
+    <a class="cta" href="#contact">Request Risk Assessment</a>
+  </div>
+</section>
+
+<!-- STATISTICS -->
+<section class="stats">
+  <div class="grid">
+    <div class="stat">
+      <h2>37%</h2>
+      <p>Average reduction in on-site theft when professional guards are deployed</p>
+    </div>
+    <div class="stat">
+      <h2>60%</h2>
+      <p>Lower insurance liability exposure for secured commercial properties</p>
+    </div>
+    <div class="stat">
+      <h2>24/7</h2>
+      <p>Continuous human presence deters crimes before they occur</p>
+    </div>
+    <div class="stat">
+      <h2>4x</h2>
+      <p>Faster incident mitigation vs police-only response models</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SECURITY -->
+<section>
+  <h2>Why Modern Businesses Require Professional Security</h2>
+  <div class="grid">
+    <div class="card red">
+      <h3>Threat Environment Has Changed</h3>
+      <p>
+        Theft, vandalism, trespassing, internal loss, and liability exposure are no longer rare events.
+        Businesses without visible security are statistically targeted at higher rates.
+      </p>
+    </div>
+    <div class="card blue">
+      <h3>Police Are Reactive — Security Is Preventative</h3>
+      <p>
+        Law enforcement response occurs after damage is done. On-site security prevents escalation,
+        documents incidents, and acts immediately.
+      </p>
+    </div>
+    <div class="card green">
+      <h3>Operational Continuity</h3>
+      <p>
+        Security ensures employees feel safe, customers remain confident, and operations are not
+        disrupted by preventable incidents.
+      </p>
+    </div>
+    <div class="card gold">
+      <h3>Perception = Protection</h3>
+      <p>
+        Visible uniforms, marked patrols, and access control systems reshape behavior instantly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE HEAVY MEDIA BLOCK -->
+<section>
+  <div class="media">
+    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=60">
+    <div>
+      <h2>Technology + Human Presence</h2>
+      <p>
+        Cameras alone do not stop crimes. Guards alone are limited without technology.
+        Russell Security integrates CCTV monitoring, patrol documentation, access control,
+        and trained personnel into a unified protection system.
+      </p>
+      <p>
+        Every deployment is designed to deter, detect, delay, and document incidents.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES CAROUSEL -->
+<section>
+  <h2>Security Services</h2>
+  <div class="carousel">
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?auto=format&fit=crop&w=800&q=60">
+      <h3>Armed & Unarmed Officers</h3>
+      <p>Professionally trained, uniformed, and compliant with California regulations.</p>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1601933470928-cf7c8b42f7b7?auto=format&fit=crop&w=800&q=60">
+      <h3>K9 Security Units</h3>
+      <p>High-deterrence patrols for large properties and high-risk environments.</p>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?auto=format&fit=crop&w=800&q=60">
+      <h3>Construction Site Security</h3>
+      <p>Prevent equipment theft, vandalism, and unauthorized access.</p>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60">
+      <h3>Corporate & Office Protection</h3>
+      <p>Front desk security, access control, and employee safety.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOS ANGELES BLOCK -->
+<section>
+  <div class="media reverse">
+    <div>
+      <h2>Serving Los Angeles & California</h2>
+      <p>
+        From dense urban corridors to commercial parks, residential HOAs,
+        logistics hubs, and entertainment venues — Russell Security understands
+        the unique security challenges of California.
+      </p>
+      <p>
+        Local knowledge matters. Regulations matter. Training matters.
+      </p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=60">
+  </div>
+</section>
+
+<footer>
+  <p>Russell Security • California Licensed • Professional Security Infrastructure</p>
+</footer>
+
+<script>
+document.querySelectorAll('.carousel').forEach(c=>{
+  setInterval(()=>c.scrollBy({left:360,behavior:'smooth'}),4000);
+});
+</script>
+
+</body>
+</html>

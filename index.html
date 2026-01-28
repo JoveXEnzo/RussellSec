@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Russell Security | Professional Protection</title>
+  <title>Russell Security | Professional Protection Services</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --neon-cyan:   #00f0ff;
-      --neon-gold:   #cfa84a;
-      --neon-red:    #ff003c;
-      --dark-bg:     #0a0a0e;
-      --dark-deep:   #05050a;
+      --dark:       #0a0a12;
+      --darker:     #05050a;
+      --cyan:       #00f0ff;
+      --gold:       #d4a017;
+      --red-glow:   #ff1a4d;
+      --text:       #e0e0ff;
     }
 
     * {
@@ -25,244 +26,339 @@
     }
 
     body {
-      background: var(--dark-deep);
-      color: white;
-      font-family: 'Russo One', Arial, sans-serif;
+      background: var(--darker);
+      color: var(--text);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ────────────────────────────────────────────────
-       CYBER HERO
-    ──────────────────────────────────────────────── */
-    .cyber-hero {
-      position: relative;
-      height: 100vh;
-      min-height: 720px;
-      background: var(--dark-bg);
-      overflow: hidden;
+    /* ─── NAVIGATION ──────────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(10,10,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,240,255,0.12);
+      z-index: 1000;
       display: flex;
       align-items: center;
-      justify-content: center;
-      perspective: 1800px;
+      justify-content: space-between;
+      padding: 0 6%;
+      font-family: 'Orbitron', sans-serif;
     }
 
-    /* Background subtle animated gradient/particles */
-    .bg-particles {
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 15% 25%, rgba(0,240,255,0.07) 0%, transparent 45%),
-        radial-gradient(circle at 85% 75%, rgba(207,168,74,0.05) 0%, transparent 55%);
-      animation: bg-drift 30s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes bg-drift {
-      0%   { background-position: 0% 0%; }
-      100% { background-position: 300% 300%; }
-    }
-
-    /* Logo container with 3D tilt on mouse */
-    .logo-container {
-      position: relative;
-      width: 55%;
-      max-width: 520px;
-      transform-style: preserve-3d;
-      transition: transform 0.45s ease-out;
-      z-index: 2;
-    }
-
-    .cyber-logo {
-      width: 100%;
-      display: block;
-      filter: 
-        brightness(0.92) 
-        contrast(1.45) 
-        drop-shadow(0 0 25px var(--neon-cyan))
-        drop-shadow(0 0 50px rgba(0,240,255,0.4));
-      animation: pulse-glow 5.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulse-glow {
-      0%   { filter: brightness(0.92) contrast(1.45) drop-shadow(0 0 25px var(--neon-cyan)); transform: scale(1) rotateY(0deg); }
-      100% { filter: brightness(1.25) contrast(1.65) drop-shadow(0 0 55px var(--neon-cyan)); transform: scale(1.035) rotateY(3deg); }
-    }
-
-    /* Scan lines */
-    .scan-lines {
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        transparent 0 1px,
-        rgba(0,240,255,0.05) 1px 2px,
-        transparent 2px 5px
-      );
-      animation: scan 4s linear infinite;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    @keyframes scan {
-      0%   { transform: translateY(-120%); }
-      100% { transform: translateY(120%); }
-    }
-
-    /* Glitch overlay */
-    .glitch-layer {
-      position: absolute;
-      inset: 0;
-      background: url('russellsec.jpg') center / cover;
-      opacity: 0.07;
-      mix-blend-mode: screen;
-      animation: glitch-heavy 4.2s infinite steps(1);
-      z-index: 4;
-      pointer-events: none;
-    }
-
-    @keyframes glitch-heavy {
-      0%, 4%, 100%  { clip-path: inset(0 0 0 0); transform: translate(0); }
-      1%   { clip-path: inset(3% 0 6% 0); transform: translate(-6px, 3px); }
-      2.5% { clip-path: inset(6% 0 3% 0); transform: translate(6px, -4px); }
-      3.5% { clip-path: inset(2% 0 9% 0); transform: translate(-3px, 5px); }
-    }
-
-    /* Hero text content */
-    .hero-text {
-      position: absolute;
-      z-index: 10;
-      text-align: center;
-      pointer-events: auto;
-    }
-
-    .neon-title {
-      font-size: clamp(4.5rem, 11vw, 11rem);
-      line-height: 0.9;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-gold), var(--neon-cyan));
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 
-        0 0 15px var(--neon-cyan),
-        0 0 40px var(--neon-cyan),
-        0 0 80px var(--neon-gold);
-      animation: neon-flicker 2.8s infinite alternate;
+      text-shadow: 0 0 15px rgba(0,240,255,0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 55px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: white;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      transition: color 0.4s ease;
+      padding: 8px 4px;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    /* Pager / page-flip underline effect on hover */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), var(--cyan), transparent);
+      border-radius: 3px;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px var(--cyan);
+      transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.5s;
+      opacity: 0;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+      opacity: 1;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 28px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.4s;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10,10,18,0.95);
+        padding: 30px 0;
+        gap: 30px;
+        transform: translateY(-120%);
+        transition: transform 0.5s ease;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* ─── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      height: 100vh;
+      min-height: 720px;
+      background: linear-gradient(rgba(5,5,10,0.88), rgba(5,5,10,0.92)),
+                  url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      padding: 0 5%;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3.8rem, 9vw, 9.5rem);
+      font-weight: 900;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(0,240,255,0.4);
       letter-spacing: -2px;
     }
 
-    @keyframes neon-flicker {
-      0%, 18%, 22%, 25%, 100% { text-shadow: 0 0 15px var(--neon-cyan), 0 0 40px var(--neon-cyan); }
-      20%, 24%               { text-shadow: 0 0 25px var(--neon-cyan), 0 0 70px var(--neon-gold); }
-    }
-
-    .neon-subtitle {
-      font-size: clamp(1.4rem, 4vw, 2.2rem);
-      margin: 25px 0 50px;
+    .hero p {
+      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      max-width: 780px;
+      margin: 0 auto 50px;
       opacity: 0.92;
-      text-shadow: 0 0 20px var(--neon-cyan);
-      letter-spacing: 1.5px;
     }
 
-    .neon-cta {
+    .cta-button {
       display: inline-block;
       padding: 18px 60px;
       background: transparent;
-      border: 3px solid var(--neon-gold);
-      color: var(--neon-gold);
+      border: 2px solid var(--gold);
+      color: var(--gold);
       font-size: 1.4rem;
       font-weight: bold;
       text-decoration: none;
-      border-radius: 60px;
+      border-radius: 50px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      box-shadow: 0 0 30px rgba(207,168,74,0.5);
+      transition: all 0.45s;
+      box-shadow: 0 0 25px rgba(212,160,23,0.4);
+    }
+
+    .cta-button:hover {
+      background: var(--gold);
+      color: #000;
+      transform: translateY(-6px);
+      box-shadow: 0 0 60px var(--gold);
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────────────────── */
+    section {
+      padding: 140px 6%;
+      min-height: 60vh;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 80px;
+      color: var(--cyan);
+      text-shadow: 0 0 25px rgba(0,240,255,0.5);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: rgba(15,15,30,0.6);
+      border: 1px solid rgba(0,240,255,0.15);
+      border-radius: 16px;
+      padding: 40px 30px;
+      backdrop-filter: blur(10px);
       transition: all 0.4s ease;
     }
 
-    .neon-cta:hover {
-      background: var(--neon-gold);
-      color: #000;
-      box-shadow: 0 0 60px var(--neon-gold);
-      transform: translateY(-6px) scale(1.05);
+    .feature-card:hover {
+      transform: translateY(-15px);
+      border-color: var(--cyan);
+      box-shadow: 0 0 40px rgba(0,240,255,0.25);
     }
 
-    /* Simple top nav */
-    .cyber-nav {
-      position: absolute;
-      top: 30px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      gap: 70px;
-      z-index: 15;
-      font-size: 1.3rem;
+    .feature-card h3 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-size: 1.6rem;
     }
 
-    .cyber-nav a {
-      color: white;
-      text-decoration: none;
-      text-shadow: 0 0 12px var(--neon-cyan);
-      transition: all 0.3s;
+    /* ─── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      padding: 80px 6% 40px;
+      text-align: center;
+      border-top: 1px solid rgba(0,240,255,0.1);
     }
 
-    .cyber-nav a:hover {
-      color: var(--neon-gold);
-      text-shadow: 0 0 25px var(--neon-gold);
-      transform: translateY(-3px);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .cyber-hero { min-height: 90vh; }
-      .logo-container { width: 70%; max-width: 420px; }
-      .cyber-nav { gap: 40px; font-size: 1.1rem; top: 20px; flex-wrap: wrap; }
-      .neon-cta { padding: 14px 40px; font-size: 1.2rem; }
-    }
-
-    @media (max-width: 600px) {
-      .neon-title { font-size: clamp(3.2rem, 14vw, 6rem); }
-      .neon-subtitle { font-size: 1.4rem; margin: 20px 0 40px; }
-      .cyber-nav { flex-direction: column; gap: 25px; }
+    footer p {
+      opacity: 0.7;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
 
-<header class="cyber-hero">
-  <div class="bg-particles"></div>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">RUSSELL SECURITY</div>
 
-  <div class="logo-container" id="logoTilt">
-    <img src="russellsec.jpg" alt="Russell Security" class="cyber-logo">
-    <div class="scan-lines"></div>
-    <div class="glitch-layer"></div>
-  </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#stats">Statistics</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-  <div class="hero-text">
-    <h1 class="neon-title">RUSSELL SECURITY</h1>
-    <p class="neon-subtitle">VIGILANCE · TECHNOLOGY · PROTECTION</p>
-    <a href="#contact" class="neon-cta">REQUEST ASSESSMENT</a>
-  </div>
-
-  <nav class="cyber-nav">
-    <a href="#services">SERVICES</a>
-    <a href="#stats">STATISTICS</a>
-    <a href="#contact">CONTACT</a>
-    <a href="#about">ABOUT</a>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
-</header>
 
-<!-- Mouse tilt effect -->
-<script>
-  const logo = document.getElementById('logoTilt');
-  if (logo) {
-    document.addEventListener('mousemove', e => {
-      const x = (window.innerWidth  / 2 - e.clientX) / 30;
-      const y = (window.innerHeight / 2 - e.clientY) / 30;
-      logo.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>PROTECTION YOU CAN TRUST</h1>
+      <p>Professional security services — armed & unarmed officers, mobile patrols, event security, executive protection, surveillance systems.</p>
+      <a href="#contact" class="cta-button">GET PROTECTED</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Armed & Unarmed Officers</h3>
+        <p>Highly trained, licensed personnel providing visible deterrence and rapid response 24/7.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Mobile Patrol & Monitoring</h3>
+        <p>Randomized patrols with real-time reporting and GPS-tracked vehicles for large properties.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Event & VIP Security</h3>
+        <p>Discreet executive protection, crowd control, and full event perimeter security.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Surveillance & Technology</h3>
+        <p>CCTV installation, access control, alarm integration, and 24/7 remote monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics / Why Us -->
+  <section id="stats" style="background: rgba(10,10,18,0.7);">
+    <h2>Why Choose Russell Security</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>California Licensed & Insured</h3>
+        <p>Fully compliant with BSIS regulations — your protection is legally sound.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Local Response Time</h3>
+        <p>Average on-site arrival under 8 minutes in covered areas.</p>
+      </div>
+      <div class="feature-card">
+        <h3>24/7 Human Oversight</h3>
+        <p>No automation-only — real people monitoring your property around the clock.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer id="contact">
+    <h2 style="margin-bottom: 40px;">Ready to Secure Your Property?</h2>
+    <p style="font-size: 1.3rem; margin-bottom: 30px;">Contact Russell Security today for a free risk assessment.</p>
+    <p style="margin: 20px 0;">Phone: (626) XXX-XXXX • Email: info@russellsecurity.com</p>
+    <p style="opacity: 0.6; margin-top: 60px;">© 2026 Russell Security • California BSIS Licensed • Proudly Serving Southern California</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('active');
+      toggle.classList.toggle('active');
     });
-  }
-</script>
 
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        links.classList.remove('active');
+        toggle.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

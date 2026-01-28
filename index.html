@@ -1,137 +1,154 @@
+<!-- ======================================================
+     FULL STACKED HORIZONTAL NAV SYSTEM
+====================================================== -->
+
+<!-- ===== UTILITY BAR ===== -->
+<div class="utility-bar">
+  <span>24/7 Professional Security Services</span>
+  <div class="utility-links">
+    <a href="#careers">Careers</a>
+    <a href="#portal">Client Portal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<!-- ===== MAIN NAV ===== -->
+<header class="main-nav">
+  <img src="russellsec.jpg" alt="Russell Security">
+
+  <nav class="primary-links">
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#technology">Technology</a>
+    <a href="#stats">Crime Data</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<!-- ===== CATEGORY STRIP ===== -->
+<div class="category-bar">
+  <a href="#armed">Armed Security</a>
+  <a href="#unarmed">Unarmed Security</a>
+  <a href="#patrol">Mobile Patrol</a>
+  <a href="#event">Event Security</a>
+  <a href="#executive">Executive Protection</a>
+  <a href="#monitoring">24/7 Monitoring</a>
+</div>
+
+<!-- ======================================================
+     STYLES
+====================================================== -->
 <style>
-  .mega-menu {
-    display: flex;
-    gap: 35px;
-    padding: 22px 26px;
-    min-width: 520px;
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
   }
 
-  .mega-column h4 {
-    color: #9ec9ff;
-    font-size: 13px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+  /* UTILITY BAR */
+  .utility-bar{
+    background:#06142f;
+    color:#9ec9ff;
+    font-size:12px;
+    padding:6px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:all 0.3s ease;
   }
 
-  .mega-column a {
-    font-size: 13px;
-    padding: 8px 0;
-    display: block;
+  .utility-links a{
+    color:#9ec9ff;
+    text-decoration:none;
+    margin-left:20px;
   }
 
-  .badge {
-    background: #ff3b3b;
-    color: #fff;
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 6px;
-    margin-left: 6px;
+  /* MAIN NAV */
+  .main-nav{
+    background:linear-gradient(135deg,#0a1f44,#0f3d91);
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 35px rgba(0,0,0,0.7);
+    position:sticky;
+    top:0;
+    z-index:999;
+    transition:padding 0.3s ease;
   }
 
-  .nav-item.mega .dropdown {
-    left: -40px;
+  .main-nav img{
+    height:60px;
+    border-radius:12px;
   }
 
-  @media (max-width: 1000px) {
-    .mega-menu {
-      flex-direction: column;
-      min-width: 280px;
+  .primary-links{
+    display:flex;
+    gap:40px;
+  }
+
+  .primary-links a{
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:1px;
+    position:relative;
+  }
+
+  .primary-links a::after{
+    content:'';
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0;
+    height:3px;
+    background:#9ec9ff;
+    transition:0.3s;
+  }
+
+  .primary-links a:hover::after{
+    width:100%;
+  }
+
+  /* CATEGORY BAR */
+  .category-bar{
+    background:#081b3a;
+    padding:14px 30px;
+    display:flex;
+    gap:30px;
+    overflow-x:auto;
+    white-space:nowrap;
+    border-top:1px solid rgba(255,255,255,0.08);
+    transition:padding 0.3s ease;
+  }
+
+  .category-bar::-webkit-scrollbar{
+    display:none;
+  }
+
+  .category-bar a{
+    color:#9ec9ff;
+    text-decoration:none;
+    font-size:13px;
+    flex-shrink:0;
+  }
+
+  .category-bar a:hover{
+    color:#ffffff;
+  }
+
+  /* MOBILE */
+  @media(max-width:900px){
+    .primary-links{
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
   }
 </style>
 
-
-
-<nav class="nav-menu">
-
-  <!-- SERVICES -->
-  <div class="nav-item mega">
-    <a href="#">Services ▾</a>
-    <div class="dropdown mega-menu">
-
-      <div class="mega-column">
-        <h4>Physical Security</h4>
-        <a href="#armed">🛡 Armed Security <span class="badge">High Risk</span></a>
-        <a href="#unarmed">👮 Unarmed Security</a>
-        <a href="#patrol">🚓 Mobile Patrol</a>
-        <a href="#event">🎫 Event Security</a>
-      </div>
-
-      <div class="mega-column">
-        <h4>Specialized</h4>
-        <a href="#executive">🕴 Executive Protection</a>
-        <a href="#loss">🏪 Loss Prevention</a>
-        <a href="#construction">🏗 Construction Site Security</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- INDUSTRIES -->
-  <div class="nav-item mega">
-    <a href="#">Industries ▾</a>
-    <div class="dropdown mega-menu">
-
-      <div class="mega-column">
-        <h4>Commercial</h4>
-        <a href="#office">🏢 Office Buildings</a>
-        <a href="#retail">🛍 Retail & Malls</a>
-        <a href="#industrial">🏭 Industrial Facilities</a>
-      </div>
-
-      <div class="mega-column">
-        <h4>Residential</h4>
-        <a href="#hoa">🏘 HOAs & Communities</a>
-        <a href="#luxury">🏙 Luxury Residences</a>
-      </div>
-
-      <div class="mega-column">
-        <h4>Public Sector</h4>
-        <a href="#government">🏛 Government Contracts</a>
-        <a href="#infrastructure">🚧 Critical Infrastructure</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- TECHNOLOGY -->
-  <div class="nav-item mega">
-    <a href="#">Technology ▾</a>
-    <div class="dropdown mega-menu">
-
-      <div class="mega-column">
-        <h4>Surveillance</h4>
-        <a href="#cameras">📷 Camera Systems</a>
-        <a href="#ai">🧠 AI Video Analytics</a>
-      </div>
-
-      <div class="mega-column">
-        <h4>Access & Alerts</h4>
-        <a href="#access">🔐 Access Control</a>
-        <a href="#alarms">🚨 Alarm Systems</a>
-        <a href="#monitoring">📡 24/7 Monitoring</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="nav-item">
-    <a href="#stats">📊 Crime Statistics</a>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="nav-item">
-    <a href="#about">ℹ About</a>
-  </div>
-
-  <!-- CTA -->
-  <div class="nav-item cta">
-    <a href="#contact">Request Security Assessment</a>
-  </div>
-
-</nav>
-
+<!-- ======================================================
+     SCROLL COMPRESSION SCRIPT
+====================================================== -->
 <script>
   const utilityBar = document.querySelector('.utility-bar');
   const mainNav = document.querySelector('.main-nav');
@@ -141,25 +158,17 @@
     if (window.scrollY > 80) {
       utilityBar.style.opacity = '0';
       utilityBar.style.height = '0';
+      utilityBar.style.padding = '0 30px';
 
       mainNav.style.padding = '10px 30px';
-
       categoryBar.style.padding = '8px 30px';
     } else {
       utilityBar.style.opacity = '1';
       utilityBar.style.height = 'auto';
+      utilityBar.style.padding = '6px 30px';
 
       mainNav.style.padding = '18px 30px';
-
       categoryBar.style.padding = '14px 30px';
     }
   });
 </script>
-
-<div class="utility-bar">...</div>
-
-<header class="main-nav">...</header>
-
-<div class="category-bar">...</div>
-
-

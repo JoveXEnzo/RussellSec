@@ -1,261 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Russell Security</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russell Security | California Professional Security Services</title>
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #000;
-      --text: #fff;
-      --muted: #bfbfbf;
-      --border: #333;
-    }
+<style>
+:root {
+  --blue:#0b1c2d;
+  --lightblue:#0f2f4a;
+  --red:#8b0000;
+  --green:#0b3d2e;
+  --gold:#cfa84a;
+  --gray:#f2f4f7;
+}
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(0,0,0,0.85);
-      padding: 18px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-    }
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+  url("https://images.unsplash.com/photo-1605902711622-cfb43c4437f1") center/cover;
+  display:flex;
+  align-items:center;
+  padding:80px 6%;
+}
+.hero-content{
+  max-width:900px;
+}
+.hero h1{
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  font-weight:900;
+}
+.hero p{
+  font-size:1.2rem;
+  opacity:.9;
+  max-width:700px;
+}
+.cta{
+  margin-top:30px;
+  display:inline-block;
+  padding:16px 32px;
+  background:var(--gold);
+  color:#000;
+  font-weight:800;
+  text-decoration:none;
+  border-radius:6px;
+}
 
-    .logo img {
-      width: 160px;
-      max-width: 160px;
-    }
+/* STATS */
+.stats{
+  background:var(--blue);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  padding:80px 6%;
+}
+.stat{
+  background:var(--lightblue);
+  padding:30px;
+  border-left:6px solid var(--gold);
+}
+.stat h2{
+  font-size:3rem;
+  margin:0;
+  color:var(--gold);
+}
+.stat p{opacity:.85}
 
-    nav {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
+/* LOGOS */
+.logos{
+  background:#000;
+  padding:60px 6%;
+  text-align:center;
+}
+.logos img{
+  height:60px;
+  margin:20px;
+  filter:grayscale(1) brightness(1.2);
+}
 
-    nav a {
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
+/* INFO CARDS */
+.section{
+  padding:90px 6%;
+}
+.section h2{
+  font-size:2.8rem;
+  margin-bottom:40px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.card{
+  background:linear-gradient(180deg,#111,#000);
+  border:1px solid #222;
+  padding:30px;
+}
+.card.red{border-top:5px solid var(--red)}
+.card.green{border-top:5px solid var(--green)}
+.card.blue{border-top:5px solid var(--lightblue)}
+.card.gold{border-top:5px solid var(--gold)}
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px;
-    }
+/* CAROUSEL */
+.carousel{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:20px;
+}
+.carousel::-webkit-scrollbar{display:none}
+.slide{
+  min-width:320px;
+  scroll-snap-align:start;
+  background:#0d0d0d;
+  padding:30px;
+  border:1px solid #222;
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin: 0;
-    }
+/* PRICING */
+.pricing{
+  background:var(--gray);
+  color:#000;
+}
+.price-card{
+  background:#fff;
+  padding:35px;
+  border-radius:8px;
+  border-top:8px solid var(--gold);
+}
 
-    .hero p {
-      font-size: 18px;
-      color: var(--muted);
-      margin-top: 14px;
-      max-width: 700px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      border: 1px solid #fff;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    section {
-      padding: 70px 20px;
-      border-top: 1px solid var(--border);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-    }
-
-    .swiper {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .swiper-slide {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      background: #111;
-    }
-
-    .card h3 {
-      margin-top: 0;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    /* Mobile */
-    @media (max-width: 900px) {
-      nav { display: none; }
-      header { justify-content: center; }
-      .hero h1 { font-size: 34px; }
-    }
-  </style>
+/* FOOTER */
+footer{
+  background:#000;
+  padding:60px 6%;
+  text-align:center;
+  opacity:.8;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="https://via.placeholder.com/260x90/000000/FFFFFF?text=RUSSELL+SECURITY" alt="Russell Security Logo">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Security That Protects Revenue, Reputation, and Human Life</h1>
+    <p>
+      Businesses without professional security are statistically more likely to suffer theft,
+      liability exposure, employee injury, and operational disruption.
+      Russell Security exists to eliminate those risks.
+    </p>
+    <a class="cta" href="#contact">Request a Security Assessment</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat">
+    <h2>37%</h2>
+    <p>Reduction in property crime for businesses using uniformed security</p>
+  </div>
+  <div class="stat">
+    <h2>4x</h2>
+    <p>Faster incident response vs unguarded locations</p>
+  </div>
+  <div class="stat">
+    <h2>68%</h2>
+    <p>Decrease in liability claims with trained officers present</p>
+  </div>
+  <div class="stat">
+    <h2>24/7</h2>
+    <p>Operational continuity protection</p>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/California_State_Seal.svg">
+  <img src="https://www.bsis.ca.gov/forms_pubs/logo_bsislg.png">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/ISO_9001-2015.svg">
+</section>
+
+<!-- WHY SECURITY -->
+<section class="section">
+  <h2>Why Businesses Lose Without Security</h2>
+  <div class="cards">
+    <div class="card red">
+      <h3>Uncontrolled Access</h3>
+      <p>Unauthorized entry leads to theft, vandalism, and internal losses.</p>
     </div>
+    <div class="card blue">
+      <h3>Delayed Response</h3>
+      <p>Minutes matter. Police response alone is statistically insufficient.</p>
+    </div>
+    <div class="card green">
+      <h3>Liability Exposure</h3>
+      <p>Unsecured premises increase insurance premiums and lawsuits.</p>
+    </div>
+    <div class="card gold">
+      <h3>Reputation Damage</h3>
+      <p>Security incidents permanently erode customer trust.</p>
+    </div>
+  </div>
+</section>
 
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- SERVICES CAROUSEL -->
+<section class="section">
+  <h2>Security Services</h2>
+  <div class="carousel">
+    <div class="slide">Armed & Unarmed Officers</div>
+    <div class="slide">Construction Site Security</div>
+    <div class="slide">Corporate & Office Protection</div>
+    <div class="slide">Retail Loss Prevention</div>
+    <div class="slide">Event & Crowd Control</div>
+    <div class="slide">Mobile Patrol Units</div>
+  </div>
+</section>
 
-  <main>
-    <section class="hero">
-      <h1>Russell Security</h1>
-      <p>
-        Elite security services for your business, property, and events. Reliable, professional, and trusted.
-      </p>
-      <a class="btn" href="#contact">Book Security</a>
-    </section>
+<!-- PRICING -->
+<section class="section pricing">
+  <h2>Security Investment Tiers</h2>
+  <div class="cards">
+    <div class="price-card">
+      <h3>Essential Coverage</h3>
+      <p>Ideal for small businesses & after-hours protection</p>
+    </div>
+    <div class="price-card">
+      <h3>Professional Coverage</h3>
+      <p>Uniformed officers, patrols, reporting systems</p>
+    </div>
+    <div class="price-card">
+      <h3>Enterprise Coverage</h3>
+      <p>Dedicated teams, armed response, full compliance</p>
+    </div>
+  </div>
+</section>
 
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="section-title">Services</div>
+<footer>
+  <p>Russell Security © California Licensed & Compliant</p>
+</footer>
 
-      <div class="swiper" id="servicesSwiper">
-        <div class="swiper-wrapper">
+<script>
+const carousels=document.querySelectorAll('.carousel');
+carousels.forEach(c=>{
+  setInterval(()=>c.scrollBy({left:340,behavior:'smooth'}),3500);
+});
+</script>
 
-          <div class="swiper-slide card">
-            <img src="https://via.placeholder.com/400x250/000000/FFFFFF?text=SERVICE+1" style="width:100%; border-radius:8px;" alt="Service 1">
-            <h3>On-Site Security</h3>
-            <p>24/7 monitoring and protection for commercial properties and events.</p>
-          </div>
-
-          <div class="swiper-slide card">
-            <img src="https://via.placeholder.com/400x250/000000/FFFFFF?text=SERVICE+2" style="width:100%; border-radius:8px;" alt="Service 2">
-            <h3>Mobile Patrols</h3>
-            <p>Regular patrols for neighborhoods, businesses, and construction sites.</p>
-          </div>
-
-          <div class="swiper-slide card">
-            <img src="https://via.placeholder.com/400x250/000000/FFFFFF?text=SERVICE+3" style="width:100%; border-radius:8px;" alt="Service 3">
-            <h3>Security Consulting</h3>
-            <p>Risk assessment, planning, and strategy to protect your assets.</p>
-          </div>
-
-        </div>
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-title">About</div>
-
-      <div class="swiper" id="aboutSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide card">
-            <h3>About Russell Security</h3>
-            <p>
-              Russell Security has been providing professional security services for years. Our team is trained, licensed, and ready to protect your business or event with integrity and excellence.
-            </p>
-          </div>
-          <div class="swiper-slide card">
-            <h3>Why Choose Us?</h3>
-            <p>
-              Fast response, reliable coverage, and professional security staff. We take your safety seriously.
-            </p>
-          </div>
-          <div class="swiper-slide card">
-            <h3>Our Promise</h3>
-            <p>
-              Respect, integrity, and protection. We will keep your property safe and secure.
-            </p>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-title">Contact</div>
-
-      <div class="swiper" id="contactSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide card">
-            <h3>Call / Text</h3>
-            <p>(555) 555-5555</p>
-          </div>
-          <div class="swiper-slide card">
-            <h3>Email</h3>
-            <p>info@russellsecurity.com</p>
-          </div>
-          <div class="swiper-slide card">
-            <h3>Location</h3>
-            <p>Service area: Nationwide</p>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </section>
-  </main>
-
-  <footer class="footer">
-    © 2026 Russell Security — All Rights Reserved
-  </footer>
-
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <script>
-    const options = {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      pagination: { el: '.swiper-pagination', clickable: true }
-    };
-
-    new Swiper('#servicesSwiper', options);
-    new Swiper('#aboutSwiper', options);
-    new Swiper('#contactSwiper', options);
-  </script>
 </body>
 </html>

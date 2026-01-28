@@ -1,204 +1,105 @@
-<!-- ======================================================
-     FULL STACKED NAV — PROMINENT LOGO VERSION
-====================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Russell Security</title>
+  <style>
+    /* ===== Global Styles ===== */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-<!-- ===== UTILITY BAR ===== -->
-<div class="utility-bar">
-  <span>24/7 Professional Security Services</span>
-  <div class="utility-links">
-    <a href="#careers">Careers</a>
-    <a href="#portal">Client Portal</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
+    /* ===== Navbar ===== */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: royalblue;
+      padding: 10px 20px;
+      color: white;
+    }
 
-<!-- ===== MAIN NAV (LOGO DOMINANT) ===== -->
-<header class="main-nav">
+    .navbar img {
+      height: 50px; /* Adjust logo size */
+    }
 
-  <!-- LOGO BLOCK -->
-  <div class="logo-block">
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffd700; /* optional hover effect */
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: royalblue;
+      color: white;
+      height: 100vh;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.2em;
+      }
+
+      .hero p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
     <img src="russellsec.jpg" alt="Russell Security Logo">
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
   </div>
 
-  <!-- PRIMARY NAV -->
-  <nav class="primary-links">
-    <a href="#services">Services</a>
-    <a href="#industries">Industries</a>
-    <a href="#technology">Technology</a>
-    <a href="#stats">Crime Data</a>
-    <a href="#about">About</a>
-  </nav>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Welcome to Russell Security</h1>
+    <p>Your safety, our mission. We provide professional security solutions tailored to your needs.</p>
+  </div>
 
-</header>
-
-<!-- ===== CATEGORY STRIP ===== -->
-<div class="category-bar">
-  <a href="#armed">Armed Security</a>
-  <a href="#unarmed">Unarmed Security</a>
-  <a href="#patrol">Mobile Patrol</a>
-  <a href="#event">Event Security</a>
-  <a href="#executive">Executive Protection</a>
-  <a href="#monitoring">24/7 Monitoring</a>
-</div>
-
-<!-- ======================================================
-     STYLES
-====================================================== -->
-<style>
-  body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-  }
-
-  /* UTILITY BAR */
-  .utility-bar{
-    background:#06142f;
-    color:#9ec9ff;
-    font-size:12px;
-    padding:6px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    transition:all 0.3s ease;
-  }
-
-  .utility-links a{
-    color:#9ec9ff;
-    text-decoration:none;
-    margin-left:20px;
-  }
-
-  /* MAIN NAV */
-  .main-nav{
-    background:linear-gradient(135deg,#0a1f44,#0f3d91);
-    padding:22px 30px;
-    display:flex;
-    align-items:center;
-    gap:50px;
-    box-shadow:0 12px 40px rgba(0,0,0,0.75);
-    position:sticky;
-    top:0;
-    z-index:999;
-    transition:padding 0.3s ease;
-  }
-
-  /* LOGO BLOCK */
-  .logo-block{
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-  }
-
-  .logo-block img{
-    height:85px; /* BIG, INTENTIONAL */
-    border-radius:14px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.7);
-  }
-
-  /* NAV LINKS */
-  .primary-links{
-    display:flex;
-    gap:42px;
-    margin-left:auto;
-  }
-
-  .primary-links a{
-    color:#ffffff;
-    text-decoration:none;
-    font-weight:600;
-    letter-spacing:1px;
-    position:relative;
-    padding-bottom:6px;
-  }
-
-  .primary-links a::after{
-    content:'';
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:0;
-    height:3px;
-    background:#9ec9ff;
-    transition:0.3s;
-  }
-
-  .primary-links a:hover::after{
-    width:100%;
-  }
-
-  /* CATEGORY BAR */
-  .category-bar{
-    background:#081b3a;
-    padding:16px 30px;
-    display:flex;
-    gap:32px;
-    overflow-x:auto;
-    white-space:nowrap;
-    border-top:1px solid rgba(255,255,255,0.08);
-    transition:padding 0.3s ease;
-  }
-
-  .category-bar::-webkit-scrollbar{
-    display:none;
-  }
-
-  .category-bar a{
-    color:#9ec9ff;
-    text-decoration:none;
-    font-size:13px;
-    flex-shrink:0;
-  }
-
-  .category-bar a:hover{
-    color:#ffffff;
-  }
-
-  /* MOBILE */
-  @media(max-width:900px){
-    .main-nav{
-      flex-wrap:wrap;
-    }
-
-    .logo-block img{
-      height:140px;
-    }
-
-    .primary-links{
-      gap:20px;
-      margin-left:0;
-      justify-content:center;
-      width:100%;
-      margin-top:12px;
-    }
-  }
-</style>
-
-<!-- ======================================================
-     SCROLL COMPRESSION SCRIPT
-====================================================== -->
-<script>
-  const utilityBar = document.querySelector('.utility-bar');
-  const mainNav = document.querySelector('.main-nav');
-  const categoryBar = document.querySelector('.category-bar');
-  const logo = document.querySelector('.logo-block img');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      utilityBar.style.opacity = '0';
-      utilityBar.style.height = '0';
-      utilityBar.style.padding = '0 30px';
-
-      mainNav.style.padding = '12px 30px';
-      categoryBar.style.padding = '10px 30px';
-      logo.style.height = '65px';
-    } else {
-      utilityBar.style.opacity = '1';
-      utilityBar.style.height = 'auto';
-      utilityBar.style.padding = '6px 30px';
-
-      mainNav.style.padding = '22px 30px';
-      categoryBar.style.padding = '16px 30px';
-      logo.style.height = '85px';
-    }
-  });
-</script>
+</body>
+</html>

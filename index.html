@@ -1,5 +1,5 @@
 <!-- ======================================================
-     FULL STACKED HORIZONTAL NAV SYSTEM
+     FULL STACKED NAV — PROMINENT LOGO VERSION
 ====================================================== -->
 
 <!-- ===== UTILITY BAR ===== -->
@@ -12,10 +12,15 @@
   </div>
 </div>
 
-<!-- ===== MAIN NAV ===== -->
+<!-- ===== MAIN NAV (LOGO DOMINANT) ===== -->
 <header class="main-nav">
-  <img src="russellsec.jpg" alt="Russell Security">
 
+  <!-- LOGO BLOCK -->
+  <div class="logo-block">
+    <img src="russellsec.jpg" alt="Russell Security Logo">
+  </div>
+
+  <!-- PRIMARY NAV -->
   <nav class="primary-links">
     <a href="#services">Services</a>
     <a href="#industries">Industries</a>
@@ -23,6 +28,7 @@
     <a href="#stats">Crime Data</a>
     <a href="#about">About</a>
   </nav>
+
 </header>
 
 <!-- ===== CATEGORY STRIP ===== -->
@@ -65,25 +71,35 @@
   /* MAIN NAV */
   .main-nav{
     background:linear-gradient(135deg,#0a1f44,#0f3d91);
-    padding:18px 30px;
+    padding:22px 30px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    box-shadow:0 10px 35px rgba(0,0,0,0.7);
+    gap:50px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.75);
     position:sticky;
     top:0;
     z-index:999;
     transition:padding 0.3s ease;
   }
 
-  .main-nav img{
-    height:60px;
-    border-radius:12px;
+  /* LOGO BLOCK */
+  .logo-block{
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
   }
 
+  .logo-block img{
+    height:85px; /* BIG, INTENTIONAL */
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.7);
+  }
+
+  /* NAV LINKS */
   .primary-links{
     display:flex;
-    gap:40px;
+    gap:42px;
+    margin-left:auto;
   }
 
   .primary-links a{
@@ -92,12 +108,13 @@
     font-weight:600;
     letter-spacing:1px;
     position:relative;
+    padding-bottom:6px;
   }
 
   .primary-links a::after{
     content:'';
     position:absolute;
-    bottom:-6px;
+    bottom:0;
     left:0;
     width:0;
     height:3px;
@@ -112,9 +129,9 @@
   /* CATEGORY BAR */
   .category-bar{
     background:#081b3a;
-    padding:14px 30px;
+    padding:16px 30px;
     display:flex;
-    gap:30px;
+    gap:32px;
     overflow-x:auto;
     white-space:nowrap;
     border-top:1px solid rgba(255,255,255,0.08);
@@ -138,10 +155,20 @@
 
   /* MOBILE */
   @media(max-width:900px){
+    .main-nav{
+      flex-wrap:wrap;
+    }
+
+    .logo-block img{
+      height:70px;
+    }
+
     .primary-links{
       gap:20px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      margin-left:0;
+      justify-content:center;
+      width:100%;
+      margin-top:12px;
     }
   }
 </style>
@@ -153,6 +180,7 @@
   const utilityBar = document.querySelector('.utility-bar');
   const mainNav = document.querySelector('.main-nav');
   const categoryBar = document.querySelector('.category-bar');
+  const logo = document.querySelector('.logo-block img');
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 80) {
@@ -160,15 +188,17 @@
       utilityBar.style.height = '0';
       utilityBar.style.padding = '0 30px';
 
-      mainNav.style.padding = '10px 30px';
-      categoryBar.style.padding = '8px 30px';
+      mainNav.style.padding = '12px 30px';
+      categoryBar.style.padding = '10px 30px';
+      logo.style.height = '65px';
     } else {
       utilityBar.style.opacity = '1';
       utilityBar.style.height = 'auto';
       utilityBar.style.padding = '6px 30px';
 
-      mainNav.style.padding = '18px 30px';
-      categoryBar.style.padding = '14px 30px';
+      mainNav.style.padding = '22px 30px';
+      categoryBar.style.padding = '16px 30px';
+      logo.style.height = '85px';
     }
   });
 </script>

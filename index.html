@@ -1455,3 +1455,83 @@ document.querySelectorAll('.carousel').forEach(c=>{
 
 </body>
 </html>
+
+<!-- ===== FLOATING CREDIT SNIPPET ===== -->
+<section class="credit-snippet">
+  <div class="credit-card">
+    <h2>WEB CODE CREATED BY</h2>
+    <p class="name">Jovannie Mediano</p>
+    <p class="email">Email: jovanniemediano@icloud.com</p>
+  </div>
+</section>
+
+<style>
+/* ===== CREDIT SNIPPET CONTAINER ===== */
+.credit-snippet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  perspective: 1500px; /* gives strong 3D depth */
+  margin: 50px 0;
+}
+
+/* ===== FLOATING CARD ===== */
+.credit-card {
+  background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
+  border-radius: 20px;
+  padding: 40px 60px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Russo One', sans-serif;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255,255,255,0.05);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 3D Hover POP EFFECT */
+.credit-card:hover {
+  transform: rotateY(10deg) rotateX(10deg) translateZ(30px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 60px rgba(255,255,255,0.1);
+}
+
+/* TEXT STYLING */
+.credit-card h2 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.credit-card .name {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  background: linear-gradient(145deg, #00ffff, #00aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+
+.credit-card .email {
+  font-size: 1rem;
+  color: #ddd;
+  letter-spacing: 0.5px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+  .credit-card {
+    padding: 30px 40px;
+  }
+  .credit-card .name {
+    font-size: 1.5rem;
+  }
+  .credit-card h2 {
+    font-size: 1.2rem;
+  }
+}
+</style>

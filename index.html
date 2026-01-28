@@ -20,7 +20,7 @@
       display: flex;
       justify-content: flex-end;
       background-color: royalblue;
-      padding: 20px 40px;
+      padding: 15px 20px;
       position: absolute;
       width: 100%;
       z-index: 10;
@@ -28,8 +28,8 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
-      font-size: 1.1em;
+      gap: 15px;
+      font-size: 1em;
     }
 
     .nav-links a {
@@ -51,35 +51,35 @@
       align-items: center;
       text-align: center;
       height: 100vh;
-      padding: 0 20px;
+      padding: 20px;
     }
 
     .hero img {
-      max-width: 80%;
+      width: 100%;
+      max-width: 500px; /* massive but constrained on smaller screens */
       height: auto;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .hero h1 {
-      font-size: 4em;
-      margin-bottom: 20px;
+      font-size: 2.5em;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      font-size: 1.5em;
-      max-width: 800px;
+      font-size: 1.2em;
+      max-width: 350px;
+      margin-bottom: 25px;
     }
 
-    /* ===== Call-to-Action Button ===== */
     .hero .cta-btn {
-      margin-top: 30px;
-      padding: 15px 40px;
+      padding: 12px 30px;
       background-color: #ffd700;
       color: royalblue;
       font-weight: bold;
       border: none;
       border-radius: 5px;
-      font-size: 1.2em;
+      font-size: 1.1em;
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -88,19 +88,24 @@
       transform: scale(1.05);
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
+    /* ===== Mobile Adjustments ===== */
+    @media (max-width: 430px) {
+      .hero img {
+        max-width: 90%; /* takes almost full screen width */
+      }
+
       .hero h1 {
-        font-size: 2.8em;
+        font-size: 2em;
       }
 
       .hero p {
-        font-size: 1.1em;
+        font-size: 1em;
+        max-width: 300px;
       }
 
       .nav-links {
-        gap: 15px;
-        font-size: 1em;
+        gap: 10px;
+        font-size: 0.95em;
       }
     }
   </style>

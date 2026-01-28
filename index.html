@@ -535,3 +535,301 @@ document.querySelectorAll('.carousel').forEach(c=>{
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russell Security | Upland & San Bernardino County Security Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#0b1f33;
+  --red:#8b0000;
+  --green:#0b3d2e;
+  --gold:#cfa84a;
+  --gray:#f1f3f6;
+  --dark:#050505;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.7;
+}
+
+section{padding:110px 6%}
+h1,h2,h3,h4{margin-top:0}
+img{width:100%;display:block;border-radius:8px}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.92)),
+    url("https://images.unsplash.com/photo-1520975922284-9f13c36c0e6b?auto=format&fit=crop&w=1600&q=60")
+    center/cover;
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{max-width:1100px}
+.hero h1{font-size:clamp(3.2rem,5vw,5.5rem);font-weight:900}
+.hero p{font-size:1.3rem;max-width:900px}
+
+.cta{
+  display:inline-block;
+  margin-top:35px;
+  padding:20px 44px;
+  background:var(--gold);
+  color:#000;
+  font-weight:900;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+/* GRID SYSTEM */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:45px;
+}
+
+/* CARD SYSTEM */
+.card{
+  background:linear-gradient(180deg,#111,#000);
+  border:1px solid #222;
+  padding:35px;
+}
+.card.blue{border-top:7px solid var(--blue)}
+.card.red{border-top:7px solid var(--red)}
+.card.green{border-top:7px solid var(--green)}
+.card.gold{border-top:7px solid var(--gold)}
+.card.gray{border-top:7px solid #777}
+
+/* MEDIA BLOCK */
+.media{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+.media.reverse{direction:rtl}
+.media.reverse > *{direction:ltr}
+@media(max-width:950px){
+  .media{grid-template-columns:1fr}
+}
+
+/* STATS */
+.stats{
+  background:var(--gray);
+  color:#000;
+}
+.stat{
+  background:#fff;
+  padding:35px;
+  border-left:9px solid var(--gold);
+}
+.stat h2{
+  font-size:3.4rem;
+  margin:0;
+  color:var(--blue);
+}
+
+/* CAROUSELS */
+.carousel{
+  display:flex;
+  gap:30px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+}
+.carousel::-webkit-scrollbar{display:none}
+.slide{
+  min-width:360px;
+  scroll-snap-align:start;
+  background:#0e0e0e;
+  border:1px solid #222;
+  padding:28px;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  padding:90px 6%;
+  text-align:center;
+  opacity:.85;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Upland Security Services Built for Real-World Risk</h1>
+    <p>
+      Russell Security provides professional, highly visible, compliance-driven security services
+      exclusively for Upland and surrounding communities in San Bernardino County.
+      We protect businesses, properties, HOAs, and people where it matters most — on site, in real time.
+    </p>
+    <a class="cta" href="#contact">Schedule a Local Security Assessment</a>
+  </div>
+</section>
+
+<!-- LOCAL STATS -->
+<section class="stats">
+  <div class="grid">
+    <div class="stat">
+      <h2>37%</h2>
+      <p>Average reduction in theft at guarded Inland Empire properties</p>
+    </div>
+    <div class="stat">
+      <h2>60%</h2>
+      <p>Lower liability exposure for insured commercial sites with security</p>
+    </div>
+    <div class="stat">
+      <h2>24/7</h2>
+      <p>Human deterrence and rapid incident response</p>
+    </div>
+    <div class="stat">
+      <h2>Local</h2>
+      <p>Upland-focused operations, not outsourced coverage</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY UPLAND NEEDS SECURITY -->
+<section>
+  <h2>Why Businesses in Upland Require Professional Security</h2>
+  <div class="grid">
+    <div class="card red">
+      <h3>Retail & Property Crime</h3>
+      <p>
+        Upland’s proximity to major transportation corridors increases exposure
+        to theft, trespassing, and vandalism for commercial properties.
+      </p>
+    </div>
+    <div class="card blue">
+      <h3>Police Response Limitations</h3>
+      <p>
+        Law enforcement responds after incidents occur.
+        On-site security prevents escalation and documents incidents immediately.
+      </p>
+    </div>
+    <div class="card green">
+      <h3>Employee & Customer Safety</h3>
+      <p>
+        Visible security reduces confrontations, improves morale,
+        and reassures customers that safety is a priority.
+      </p>
+    </div>
+    <div class="card gold">
+      <h3>Insurance & Liability</h3>
+      <p>
+        Security presence directly impacts insurance rates, claims,
+        and legal exposure for property owners.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section>
+  <div class="media">
+    <img src="https://images.unsplash.com/photo-1581091870627-3f98c7c2a5f6?auto=format&fit=crop&w=1200&q=60">
+    <div>
+      <h2>Security Cameras Alone Are Not Enough</h2>
+      <p>
+        Cameras record incidents. They do not stop them.
+        Russell Security integrates trained officers with surveillance,
+        patrol reporting, access control, and rapid escalation protocols.
+      </p>
+      <p>
+        The goal is deterrence first — documentation second — enforcement only when required.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <h2>Upland Security Services</h2>
+  <div class="carousel">
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?auto=format&fit=crop&w=900&q=60">
+      <h3>Uniformed Security Officers</h3>
+      <p>Highly visible presence for commercial and residential properties.</p>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1601933470928-cf7c8b42f7b7?auto=format&fit=crop&w=900&q=60">
+      <h3>K9 Patrol Units</h3>
+      <p>Maximum deterrence for large sites and high-risk environments.</p>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?auto=format&fit=crop&w=900&q=60">
+      <h3>Firearms & Tactical Training</h3>
+      <p>Strictly regulated, professionally trained armed officers.</p>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=60">
+      <h3>Office & Corporate Security</h3>
+      <p>Access control, visitor management, and employee protection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOA / NEIGHBORHOOD -->
+<section>
+  <div class="media reverse">
+    <div>
+      <h2>HOA & Neighborhood Security</h2>
+      <p>
+        Residential communities in Upland rely on visible patrols,
+        rapid response, and consistent enforcement to maintain safety
+        and property values.
+      </p>
+      <p>
+        Russell Security provides patrol vehicles, reporting,
+        and community-oriented officers.
+      </p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1200&q=60">
+  </div>
+</section>
+
+<!-- LOS ANGELES / INLAND EMPIRE CONTEXT -->
+<section>
+  <div class="media">
+    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=60">
+    <div>
+      <h2>Strategically Positioned in the Inland Empire</h2>
+      <p>
+        Upland sits at the intersection of residential growth,
+        commercial expansion, and transportation access.
+        This creates opportunity — and security challenges.
+      </p>
+      <p>
+        Local security expertise matters. Russell Security operates
+        with direct knowledge of San Bernardino County environments.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Russell Security • Upland, California • San Bernardino County</p>
+</footer>
+
+<script>
+document.querySelectorAll('.carousel').forEach(c=>{
+  setInterval(()=>c.scrollBy({left:380,behavior:'smooth'}),4200);
+});
+</script>
+
+</body>
+</html>

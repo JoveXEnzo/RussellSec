@@ -131,3 +131,27 @@
   </div>
 
 </nav>
+
+<script>
+  const utilityBar = document.querySelector('.utility-bar');
+  const mainNav = document.querySelector('.main-nav');
+  const categoryBar = document.querySelector('.category-bar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      utilityBar.style.opacity = '0';
+      utilityBar.style.height = '0';
+
+      mainNav.style.padding = '10px 30px';
+
+      categoryBar.style.padding = '8px 30px';
+    } else {
+      utilityBar.style.opacity = '1';
+      utilityBar.style.height = 'auto';
+
+      mainNav.style.padding = '18px 30px';
+
+      categoryBar.style.padding = '14px 30px';
+    }
+  });
+</script>

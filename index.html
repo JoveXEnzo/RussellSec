@@ -1,3 +1,130 @@
+<header class="digital-header">
+  <div class="image-container">
+    <img src="russellsec.jpg" alt="Russell Security Logo" class="digital-image">
+    <div class="scan-lines"></div>
+    <div class="glitch-overlay"></div>
+    <div class="floating-pixels"></div>
+  </div>
+</header>
+
+<style>
+.digital-header {
+  position: relative;
+  width: 100%;
+  height: 70vh; 
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+}
+
+/* IMAGE CONTAINER CENTERED */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* IMAGE FULLY VISIBLE */
+.digital-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* preserves entire logo */
+  display: block;
+  z-index: 1;
+  animation: pulse 6s ease-in-out infinite alternate;
+  filter: brightness(0.85) contrast(1.3);
+}
+
+/* BREATHING PULSE */
+@keyframes pulse {
+  0% { transform: scale(1); filter: brightness(0.85) contrast(1.3); }
+  25% { transform: scale(1.05); filter: brightness(1) contrast(1.5); }
+  50% { transform: scale(1.1); filter: brightness(1.1) contrast(1.6); }
+  75% { transform: scale(1.05); filter: brightness(1) contrast(1.5); }
+  100% { transform: scale(1); filter: brightness(0.85) contrast(1.3); }
+}
+
+/* SCAN LINES */
+.scan-lines {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.05) 0,
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  animation: scan 2s linear infinite;
+  z-index: 2;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* GLITCH OVERLAY MATCHES IMAGE */
+.glitch-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: url('russellsec.jpg') no-repeat center/contain;
+  opacity: 0.05;
+  transform: translate(-50%, -50%);
+  animation: glitch 3s infinite;
+  z-index: 3;
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(0% 0% 90% 0%); transform: translateX(0); }
+  25% { clip-path: inset(10% 0% 80% 0%); transform: translateX(-5px); }
+  50% { clip-path: inset(0% 0% 90% 0%); transform: translateX(5px); }
+  75% { clip-path: inset(20% 0% 60% 0%); transform: translateX(-3px); }
+  100% { clip-path: inset(0% 0% 90% 0%); transform: translateX(0); }
+}
+
+/* FLOATING PIXELS */
+.floating-pixels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(0,255,255,0.3) 1px, transparent 1px);
+  background-size: 4px 4px;
+  animation: float 10s linear infinite;
+  z-index: 4;
+}
+
+@keyframes float {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 200px; }
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+  .digital-header { height: 50vh; }
+  .digital-image { max-height: 90%; max-width: 90%; }
+}
+</style>
+
+
+
+
+
+
+
+
+
 <!-- ===== FULL IMAGE DIGITAL HEADER ===== -->
 <header class="digital-header">
   <div class="image-container">
